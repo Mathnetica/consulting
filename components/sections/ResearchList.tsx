@@ -22,12 +22,12 @@ export function ResearchList({ articles, compact = false }: ResearchListProps) {
         <FadeIn key={article.slug} delayMs={index * 40}>
           <article className={compact ? "py-6 md:py-7" : "py-8 md:py-10"}>
             <div className="grid gap-3 md:grid-cols-[160px_1fr] md:gap-10">
-              <div className="space-y-1 text-sm text-muted-foreground">
+              <div className="space-y-1 text-base text-muted-foreground">
                 <p>{article.category}</p>
                 <p>{formatDate(article.date)}</p>
               </div>
               <div>
-                <h3 className={compact ? "text-xl" : "text-2xl md:text-3xl"}>
+                <h3 className={compact ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"}>
                   <Link
                     href={`/research/${article.slug}`}
                     className="tracking-tight transition-opacity hover:opacity-70"
@@ -35,12 +35,12 @@ export function ResearchList({ articles, compact = false }: ResearchListProps) {
                     {article.title}
                   </Link>
                 </h3>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
                   {article.abstract}
                 </p>
                 <Link
                   href={`/research/${article.slug}`}
-                  className="mt-4 inline-block text-sm underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+                  className="mt-4 inline-block text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                 >
                   Read more
                 </Link>

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { ServiceSection } from "@/components/sections/ServiceSection";
+import { Engagements } from "@/components/sections/Engagements";
 import { CTASection } from "@/components/sections/CTASection";
 import { services } from "@/lib/content/services";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Data & AI Platform Engineering, AI Architecture, Complex Systems Engineering and Architecture Reviews from Mathnetica.",
+    "Data & AI platforms, AI architecture, Architecture Reviews and fractional senior technical direction from Mathnetica.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
@@ -17,13 +19,13 @@ export default function ServicesPage() {
         <div className="container-content">
           <SectionIntro
             eyebrow="Services"
-            title="Engineering services for production Data & AI systems."
-            description="Concise engagements focused on architecture that can be built, operated and owned."
+            title="Expertise for complex Data & AI systems."
+            description="Platform engineering, AI architecture and focused technical engagements with clear deliverables."
           />
         </div>
       </section>
 
-      <section className="container-site pb-24 md:pb-32">
+      <section className="container-site pb-16 md:pb-24">
         <div className="container-content">
           {services.map((service) => (
             <div key={service.slug} id={service.slug}>
@@ -35,9 +37,20 @@ export default function ServicesPage() {
 
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
+          <SectionIntro
+            eyebrow="Engagements"
+            title="How organizations work with us."
+            description="One entry product with a fixed price. Larger work is scoped and priced after conversation."
+          />
+          <Engagements variant="all" />
+        </div>
+      </section>
+
+      <section className="container-site section-space border-t border-border">
+        <div className="container-content">
           <CTASection
-            title="Need a senior technical view?"
-            description="Start with an Architecture Review, or talk to us about platform and AI architecture work."
+            title="Bring us the difficult problem."
+            description="Start with a review, a Solution Architecture engagement, or ongoing senior direction."
           />
         </div>
       </section>

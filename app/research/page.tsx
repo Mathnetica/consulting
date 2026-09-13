@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { ResearchList } from "@/components/sections/ResearchList";
+import { ResearchLab } from "@/components/sections/ResearchLab";
 import { FadeIn } from "@/components/ui/fade-in";
 import {
   researchArticles,
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
   title: "Research",
   description:
     "Research notes from Mathnetica on hybrid search, retrieval, sovereign AI, distributed systems and AI platform architecture.",
+  alternates: { canonical: "/research" },
 };
 
 export default function ResearchPage() {
@@ -20,16 +22,13 @@ export default function ResearchPage() {
         <div className="container-content">
           <SectionIntro
             eyebrow="Research"
-            title="Notes from the engineering practice."
-            description="Research supports our commercial work. It keeps the practice sharp around AI infrastructure, search, distributed systems and architecture patterns."
+            title="Research is part of the work."
+            description="We investigate the technologies and patterns shaping the next generation of Data & AI systems."
           />
           <FadeIn className="mt-10">
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {researchCategories.map((category) => (
-                <li
-                  key={category}
-                  className="text-sm text-muted-foreground"
-                >
+                <li key={category} className="text-base text-muted-foreground">
                   {category}
                 </li>
               ))}
@@ -38,8 +37,17 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      <section className="container-site pb-24 md:pb-40">
+      <ResearchLab />
+
+      <section className="container-site pt-16 pb-24 md:pt-24 md:pb-40">
         <div className="container-content">
+          <FadeIn className="mb-10 md:mb-12">
+            <h2 className="text-section">Selected notes</h2>
+            <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+              Short technical notes from the practice — retrieval, platforms and
+              production AI systems.
+            </p>
+          </FadeIn>
           <ResearchList articles={researchArticles} />
         </div>
       </section>

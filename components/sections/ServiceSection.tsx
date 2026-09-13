@@ -19,7 +19,7 @@ export function ServiceSection({
           className="border-t border-border py-12 md:py-16"
         >
           <div className="grid gap-8 lg:grid-cols-[180px_1fr] lg:gap-12">
-            <p className="text-sm tracking-[0.14em] text-muted-foreground">
+            <p className="text-base tracking-[0.12em] text-muted-foreground">
               {service.number}
             </p>
             <div>
@@ -35,7 +35,7 @@ export function ServiceSection({
                   </Link>
                 )}
               </h3>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 {service.shortDescription}
               </p>
 
@@ -56,7 +56,7 @@ export function ServiceSection({
                   {service.capabilities.map((capability) => (
                     <li
                       key={capability}
-                      className="text-sm text-muted-foreground before:mr-4 before:content-['·'] first:before:content-none"
+                      className="text-base text-muted-foreground before:mr-4 before:content-['·'] first:before:content-none"
                     >
                       {capability}
                     </li>
@@ -65,7 +65,7 @@ export function ServiceSection({
               )}
 
               {service.priceNote ? (
-                <p className="mt-8 text-sm text-foreground/80">
+                <p className="mt-8 text-base text-foreground/80">
                   {service.priceNote}
                 </p>
               ) : null}
@@ -80,10 +80,10 @@ export function ServiceSection({
 function DetailBlock({ title, body }: { title: string; body: string }) {
   return (
     <div>
-      <h4 className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
+      <h4 className="text-sm tracking-[0.12em] text-muted-foreground uppercase">
         {title}
       </h4>
-      <p className="mt-3 text-sm leading-relaxed text-foreground/85 md:text-base">
+      <p className="mt-3 text-base leading-relaxed text-foreground/85">
         {body}
       </p>
     </div>
@@ -93,12 +93,12 @@ function DetailBlock({ title, body }: { title: string; body: string }) {
 function ListBlock({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h4 className="text-xs tracking-[0.14em] text-muted-foreground uppercase">
+      <h4 className="text-sm tracking-[0.12em] text-muted-foreground uppercase">
         {title}
       </h4>
       <ul className="mt-3 space-y-2">
         {items.map((item) => (
-          <li key={item} className="text-sm leading-relaxed text-foreground/85">
+          <li key={item} className="text-base leading-relaxed text-foreground/85">
             {item}
           </li>
         ))}

@@ -8,7 +8,8 @@ import { aboutValues } from "@/lib/content/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Mathnetica is a Dutch engineering consultancy built around senior engineers and architects who design systems they know how to build.",
+    "Mathnetica is a Data & AI consultancy for complex production environments — experts who work at architecture level and can drop into engineering.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
@@ -16,23 +17,23 @@ export default function AboutPage() {
     <>
       <section className="container-site pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="container-content">
-          <LargeStatement statement="Mathnetica is an engineering company built around people who have spent years building complex systems.">
+          <LargeStatement statement="We kept seeing the same problem.">
             <p>
-              We are a small, highly technical Dutch engineering boutique. Our
-              work sits at the intersection of architecture and implementation —
-              Data &amp; AI platforms, production AI systems and complex
-              engineering environments.
+              Years spent working across private companies and public
+              organizations showed us a recurring pattern.
             </p>
+            <p>
+              The people making technical decisions were becoming increasingly
+              disconnected from the people building the systems.
+            </p>
+            <p>Mathnetica was created to close that gap.</p>
           </LargeStatement>
         </div>
       </section>
 
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
-          <SectionIntro
-            title="What we value."
-            description="Clear principles that keep the practice technical, independent and useful."
-          />
+          <SectionIntro title="What we value." />
           <FadeIn className="mt-12">
             <ul className="grid gap-4 sm:grid-cols-2">
               {aboutValues.map((value) => (
@@ -51,21 +52,18 @@ export default function AboutPage() {
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
           <SectionIntro
-            title="Engineering architects."
-            description="Mathnetica specialists combine hands-on software engineering backgrounds with architecture experience and relevant professional credentials."
+            title="Architects who still engineer."
+            description="Our background is software engineering. That experience shapes every decision we make."
           />
           <FadeIn className="mt-10 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
-              Our people have designed and built distributed systems, cloud
-              platforms, data infrastructure and production software. Architecture
-              work is an extension of that engineering depth — not a separate
-              abstract layer.
+              We have built complex systems, platforms and infrastructure before
+              designing them for others — including cloud, Kubernetes, data and
+              AI systems, with TOGAF where the discipline helps.
             </p>
             <p>
-              Where relevant, the practice draws on enterprise architecture
-              credentials such as TOGAF and cloud or Kubernetes certifications.
-              We do not treat credentials as a substitute for production
-              judgment.
+              Research is part of the work. We leave clear decisions your teams
+              can own.
             </p>
           </FadeIn>
         </div>

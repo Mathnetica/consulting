@@ -3,11 +3,21 @@ export const siteConfig = {
   email: "hello@mathnetica.com",
   location: "Amsterdam · Netherlands",
   locationShort: "Amsterdam, Netherlands",
+  /** Postal address — Amsterdam Zuid (Stadionbuurt). */
+  address: {
+    street: "Patroclosstraat 2",
+    postalCode: "1076 NG",
+    city: "Amsterdam",
+    country: "Netherlands",
+  },
   linkedin: "https://www.linkedin.com/company/mathnetica",
   github: "https://github.com/mathnetica",
   description:
-    "Mathnetica is a Netherlands-based engineering consultancy specializing in Data & AI Platform Engineering, AI Architecture and complex systems.",
-  tagline: "Architecture by engineers.",
+    "Mathnetica is a Data & AI consultancy for complex production environments — platform engineering, AI architecture and focused technical engagements.",
+  tagline: "Engineering the platforms behind Data & AI.",
+  primaryCta: "Start a project",
+  secondaryCta: "Explore services",
+  finalCta: "Discuss your project",
 } as const;
 
 export const navLinks = [
@@ -17,60 +27,65 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export const principles = [
+export const heroFocus = [
+  "Data & AI Platform Engineering",
+  "AI Architecture",
+] as const;
+
+export const expertiseAreas = [
   {
     number: "01",
-    title: "Architecture",
+    title: "Data & AI Platforms",
     description:
-      "Practical system design grounded in real constraints, scale and ownership.",
+      "Data architecture, AI infrastructure, retrieval, RAG, model serving, Kubernetes and cloud-native platforms.",
+    href: "/services#data-ai-platform-engineering",
   },
   {
     number: "02",
-    title: "Engineering",
+    title: "AI Architecture",
     description:
-      "Architecture shaped by people who have built production systems themselves.",
+      "Technical direction for production AI — integration, security, governance, scalability and technology decisions.",
+    href: "/services#data-ai-solution-architecture",
   },
   {
     number: "03",
-    title: "Production",
+    title: "Architecture Review",
     description:
-      "Designs that survive operations: reliability, observability, security and change.",
+      "Independent assessment of an existing Data, AI or platform architecture.",
+    href: "/services#architecture-review",
   },
 ] as const;
 
 export const credentials = [
-  "TOGAF",
+  "Software Engineering",
+  "Distributed Systems",
   "Kubernetes",
   "Azure",
   "AWS",
-  "Data Platforms",
-  "Software Architecture",
+  "TOGAF",
+  "Data & AI",
 ] as const;
 
 export const processSteps = [
   {
     number: "01",
     title: "Understand",
-    description:
-      "We start with the system, constraints, organization and business problem.",
+    description: "Constraints before solutions.",
   },
   {
     number: "02",
-    title: "Architect",
-    description:
-      "We define a practical architecture grounded in engineering reality.",
+    title: "Design",
+    description: "Clear technical decisions and system direction.",
   },
   {
     number: "03",
-    title: "Build",
-    description:
-      "We prototype or implement the critical parts together with your engineering teams.",
+    title: "Validate",
+    description: "Prove the difficult parts.",
   },
   {
     number: "04",
     title: "Transfer",
-    description:
-      "We document decisions, patterns and operational knowledge so teams can own the platform.",
+    description: "Your team owns what comes next.",
   },
 ] as const;
 
@@ -93,12 +108,62 @@ export const researchAreas = [
 ] as const;
 
 export const aboutValues = [
-  "Engineering depth",
-  "Architecture grounded in implementation",
-  "Technical independence",
-  "Small senior teams",
+  "Engineering depth behind every decision",
+  "Independent technical judgment",
+  "Clear deliverables and transferable ownership",
   "Simple systems over unnecessary complexity",
   "Open standards",
-  "Measurable results",
-  "Knowledge transfer",
+  "Measurable outcomes",
+  "Guidance for client implementation teams",
+  "Research that informs practice",
+] as const;
+
+/** Homepage commercial models — time + outcome; one public price (Review). */
+export const homepageEngagements = [
+  {
+    name: "Architecture Review",
+    duration: "1–2 weeks",
+    price: "€2,500 fixed",
+    commercial: null,
+    description:
+      "Independent technical assessment of your Data & AI architecture.",
+    outcomes: "Risks · gaps · prioritized recommendations",
+    cta: { href: "/contact", label: "Start with a review" },
+  },
+  {
+    name: "Solution Architecture",
+    duration: "3–6 weeks",
+    price: null,
+    commercial: "Defined engagement",
+    description:
+      "Technical direction for a defined Data & AI initiative.",
+    outcomes: "Target architecture · ADRs · technology decisions · roadmap",
+    cta: { href: "/contact", label: "Discuss your project" },
+  },
+  {
+    name: "Data & AI Platform Architecture",
+    duration: "4–8+ weeks",
+    price: null,
+    commercial: "Defined engagement",
+    description:
+      "Design for the platform layer underneath production AI.",
+    outcomes:
+      "Platform design · security · integration · retrieval · infrastructure",
+    cta: { href: "/contact", label: "Discuss your project" },
+  },
+] as const;
+
+/** Full list for /services, including fractional capacity. */
+export const engagements = [
+  ...homepageEngagements,
+  {
+    name: "Fractional Principal Architect",
+    duration: "Ongoing engagement",
+    price: null,
+    commercial: "Monthly engagement",
+    description:
+      "Ongoing senior Data & AI technical direction across initiatives.",
+    outcomes: "Usually 1–2 days per week · decisions · reviews · direction",
+    cta: { href: "/contact", label: "Discuss your project" },
+  },
 ] as const;

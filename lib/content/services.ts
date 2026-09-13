@@ -15,154 +15,100 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "data-ai-platform-engineering",
+    slug: "data-ai-solution-architecture",
     number: "01",
+    title: "Data & AI Solution Architecture",
+    shortDescription:
+      "Technical direction for complex Data & AI systems — decisions your teams can implement.",
+    capabilities: [
+      "enterprise AI architecture",
+      "data architecture",
+      "AI platform architecture",
+      "integration architecture",
+      "RAG / search architecture",
+      "cloud-native architecture",
+      "security & governance",
+      "technology selection",
+      "ADRs & technical strategy",
+    ],
+    problem:
+      "Organizations need clear technical direction for enterprise RAG, AI platforms and data systems under real constraints — cloud, security, integration and existing teams.",
+    whatWeDo:
+      "We define requirements and constraints, target design, technology decisions, ADRs, security and integration patterns, deployment model, and a roadmap for your implementation teams.",
+    typicalEngagement:
+      "Engagements of several weeks, Architecture Reviews, or fractional Principal / Solution Architect retainers.",
+    deliverables: [
+      "Assessment and constraints model",
+      "Target design and system diagrams",
+      "Technology decisions and ADRs",
+      "Security, integration and deployment guidance",
+      "Implementation roadmap for client teams",
+    ],
+    technologies: [
+      "Azure / AWS / GCP",
+      "Databricks and lakehouse stacks",
+      "Kubernetes",
+      "RAG and search infrastructure",
+      "API and event integration",
+      "Identity, security and governance patterns",
+    ],
+    outcomes: [
+      "Clear technical direction before large spend",
+      "Decisions that hold up in production",
+      "Client teams equipped to build and own the system",
+      "Senior expertise without standing up a delivery squad",
+    ],
+  },
+  {
+    slug: "data-ai-platform-engineering",
+    number: "02",
     title: "Data & AI Platform Engineering",
     shortDescription:
-      "Design and implementation of modern data and AI platforms.",
+      "Platform foundations and critical-path engineering where implementation knowledge is required to validate design.",
     capabilities: [
-      "data platforms",
+      "platform foundations",
+      "reference implementations",
+      "critical-path PoCs",
       "lakehouse architecture",
-      "event-driven systems",
-      "data products",
-      "search infrastructure",
-      "vector search",
       "RAG infrastructure",
-      "model serving",
+      "model serving patterns",
       "observability",
       "Kubernetes",
-      "cloud platforms",
       "sovereign infrastructure",
     ],
     problem:
-      "Production AI fails when the data, serving and platform layers underneath it are fragile, fragmented or hard to operate.",
+      "Design fails when it has never touched the hard parts of the platform — retrieval quality, serving, data contracts or operational reality.",
     whatWeDo:
-      "We design and build the platform foundations for data products, retrieval, model serving and operational reliability — with architecture that engineering teams can own.",
+      "We engineer reference implementations, prototypes and critical paths to validate the hardest technical bets.",
     typicalEngagement:
-      "Platform assessments, target architecture, reference implementations and paired delivery with internal platform or data engineering teams.",
+      "Time-boxed validation of the hardest technical bets, alongside Solution Architecture work.",
     deliverables: [
-      "Current-state assessment",
-      "Target platform architecture",
-      "Reference implementation of critical paths",
-      "Operational runbooks and ownership model",
-      "Migration and rollout plan",
+      "Critical-path prototype or PoC",
+      "Reference implementation patterns",
+      "Technical risk findings",
+      "Handover for client engineering ownership",
     ],
     technologies: [
       "Kubernetes",
-      "lakehouse stacks",
-      "event streaming",
-      "vector databases",
-      "search engines",
+      "data platforms",
+      "vector search",
       "model serving",
-      "observability tooling",
+      "observability stacks",
       "major cloud providers",
     ],
     outcomes: [
-      "A coherent platform for data and AI workloads",
-      "Clear ownership boundaries",
-      "Faster path from prototype to production",
-      "Infrastructure that can be operated and evolved",
-    ],
-  },
-  {
-    slug: "ai-architecture",
-    number: "02",
-    title: "AI Architecture",
-    shortDescription:
-      "Architecture for production-grade AI systems integrated into real enterprise environments.",
-    capabilities: [
-      "AI platform architecture",
-      "LLM architecture",
-      "RAG architecture",
-      "agent systems",
-      "evaluation architecture",
-      "model serving",
-      "integration patterns",
-      "security",
-      "governance",
-      "scalability",
-      "enterprise AI architecture",
-    ],
-    problem:
-      "Many AI initiatives stall between demos and production because architecture, integration, evaluation and governance were treated as afterthoughts.",
-    whatWeDo:
-      "We define AI system architecture that fits enterprise constraints: identity, data access, evaluation, serving, observability and change management.",
-    typicalEngagement:
-      "Architecture design for LLM and RAG systems, agent platforms, evaluation pipelines and integration into existing enterprise landscapes.",
-    deliverables: [
-      "AI system architecture",
-      "Integration and security patterns",
-      "Evaluation approach",
-      "Risk and governance recommendations",
-      "Implementation roadmap",
-    ],
-    technologies: [
-      "LLM APIs and self-hosted models",
-      "RAG pipelines",
-      "vector search",
-      "orchestration frameworks",
-      "API gateways",
-      "identity and access control",
-      "evaluation tooling",
-    ],
-    outcomes: [
-      "AI systems designed for production use",
-      "Clear boundaries between models, data and applications",
-      "Measurable quality and operational controls",
-      "Architecture that can scale with demand",
-    ],
-  },
-  {
-    slug: "complex-systems-engineering",
-    number: "03",
-    title: "Complex Systems Engineering",
-    shortDescription:
-      "Engineering support for systems that are difficult to design, scale, migrate or operate.",
-    capabilities: [
-      "distributed systems",
-      "performance",
-      "scalability",
-      "system modernization",
-      "platform migration",
-      "API architecture",
-      "event-driven systems",
-      "cloud-native architecture",
-      "search systems",
-    ],
-    problem:
-      "Legacy platforms, distributed systems and high-throughput workloads often outgrow their original design and become expensive to change safely.",
-    whatWeDo:
-      "We help teams redesign, modernize and stabilize complex systems — with senior engineers who understand both architecture and implementation detail.",
-    typicalEngagement:
-      "Performance and scalability work, modernization programs, platform migrations and deep technical pairing on critical subsystems.",
-    deliverables: [
-      "System analysis and risk map",
-      "Target architecture and migration strategy",
-      "Critical path implementations",
-      "Performance and reliability improvements",
-      "Handover documentation",
-    ],
-    technologies: [
-      "distributed systems",
-      "APIs and event buses",
-      "cloud-native platforms",
-      "search infrastructure",
-      "observability stacks",
-      "performance tooling",
-    ],
-    outcomes: [
-      "Systems that can scale and evolve",
-      "Reduced operational risk during change",
-      "Clearer technical ownership",
-      "Practical modernization without rewrite theater",
+      "Design proven where it matters most",
+      "Reduced implementation risk",
+      "Patterns client teams can extend",
+      "Clear ownership after the engagement",
     ],
   },
   {
     slug: "architecture-review",
-    number: "04",
+    number: "03",
     title: "Architecture Review",
     shortDescription:
-      "A focused senior technical review of an existing Data, AI or platform architecture.",
+      "A focused senior technical review of an existing Data, AI or platform setup.",
     capabilities: [
       "discovery session",
       "architecture assessment",
@@ -174,9 +120,8 @@ export const services: Service[] = [
     problem:
       "Teams need an independent, senior technical view before committing to a platform direction, major migration or AI investment.",
     whatWeDo:
-      "We run a focused architecture review: understand the system, assess risks and trade-offs, and deliver clear, prioritized recommendations.",
-    typicalEngagement:
-      "A time-boxed engagement with discovery, assessment and a structured review session with technical stakeholders.",
+      "We run a time-boxed Architecture Review: understand the system, assess risks and trade-offs, and deliver clear, prioritized recommendations.",
+    typicalEngagement: "1–2 weeks with discovery, assessment and a review session.",
     deliverables: [
       "Discovery session",
       "Architecture assessment",
@@ -196,7 +141,45 @@ export const services: Service[] = [
       "Actionable next steps",
       "Better decisions before large spend",
     ],
-    priceNote: "Architecture Review — from €1,950",
+    priceNote: "Architecture Review — €2,500 fixed",
+  },
+  {
+    slug: "fractional-principal-architect",
+    number: "04",
+    title: "Fractional Principal Architect",
+    shortDescription:
+      "Ongoing senior Data & AI technical direction across initiatives — typically one to two days per week.",
+    capabilities: [
+      "technical strategy",
+      "architecture governance",
+      "design reviews",
+      "technology selection",
+      "roadmap stewardship",
+      "guidance for delivery teams",
+    ],
+    problem:
+      "Organizations need continuous senior technical judgment across initiatives, but a full-time principal hire is not always the right model.",
+    whatWeDo:
+      "We provide fractional Principal / Solution Architecture: typically one to two days per week, focused on decisions, reviews and direction.",
+    typicalEngagement: "Monthly retainer, usually 1–2 days per week.",
+    deliverables: [
+      "Standing technical direction cadence",
+      "Design and ADR reviews",
+      "Prioritized backlog of decisions",
+      "Guidance for internal implementation teams",
+    ],
+    technologies: [
+      "Enterprise architecture practice",
+      "Data & AI platforms",
+      "Cloud and Kubernetes landscapes",
+    ],
+    outcomes: [
+      "Senior technical capacity on retainer",
+      "Consistent direction across teams",
+      "Continuity without a full-time hire",
+      "Expertise that scales across initiatives",
+    ],
+    priceNote: "Fractional Principal Architect — ongoing monthly engagement",
   },
 ];
 

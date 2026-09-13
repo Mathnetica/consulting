@@ -5,11 +5,13 @@ import { FadeIn } from "@/components/ui/fade-in";
 type CTASectionProps = {
   title?: string;
   description?: string;
+  ctaLabel?: string;
 };
 
 export function CTASection({
-  title = "Building something difficult?",
-  description = "If you are designing a Data & AI platform, modernizing a complex system or need an independent architecture review, talk to us.",
+  title = "Bring us the difficult problem.",
+  description = "Data platforms. Production AI. Retrieval. Infrastructure. Complex technical decisions. Let's figure out what should be built — and why.",
+  ctaLabel = siteConfig.finalCta,
 }: CTASectionProps) {
   return (
     <FadeIn>
@@ -19,11 +21,11 @@ export function CTASection({
       </p>
       <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
         <Link href="/contact" className="btn-pill-primary">
-          Start a project
+          {ctaLabel}
         </Link>
         <a
           href={`mailto:${siteConfig.email}`}
-          className="text-sm underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+          className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
         >
           {siteConfig.email}
         </a>

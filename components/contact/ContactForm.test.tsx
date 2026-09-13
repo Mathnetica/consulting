@@ -21,7 +21,7 @@ describe("ContactForm", () => {
     expect(screen.getByLabelText(/^name$/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/work email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/company/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/what are you building/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/what architecture are you shaping/i)).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /send enquiry/i }),
     ).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("ContactForm", () => {
     await user.type(screen.getByLabelText(/work email/i), "ada@example.com");
     await user.type(screen.getByLabelText(/company/i), "Analytical Engines");
     await user.type(
-      screen.getByLabelText(/what are you building/i),
+      screen.getByLabelText(/what architecture are you shaping/i),
       "We are building a production RAG platform for regulated data.",
     );
     await user.click(screen.getByRole("button", { name: /send enquiry/i }));
@@ -62,7 +62,7 @@ describe("ContactForm", () => {
     await user.type(screen.getByLabelText(/work email/i), "bad");
     await user.type(screen.getByLabelText(/company/i), "Analytical Engines");
     await user.type(
-      screen.getByLabelText(/what are you building/i),
+      screen.getByLabelText(/what architecture are you shaping/i),
       "We are building a production RAG platform for regulated data.",
     );
     await user.click(screen.getByRole("button", { name: /send enquiry/i }));

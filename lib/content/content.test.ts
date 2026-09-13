@@ -5,7 +5,13 @@ import {
   researchArticles,
   researchCategories,
 } from "@/lib/content/research";
-import { navLinks, siteConfig } from "@/lib/content/site";
+import {
+  homepageEngagements,
+  navLinks,
+  processSteps,
+  siteConfig,
+} from "@/lib/content/site";
+import { legalLinks } from "@/lib/content/legal";
 
 describe("services content", () => {
   it("defines four service lines", () => {
@@ -28,9 +34,14 @@ describe("services content", () => {
     }
   });
 
-  it("includes an architecture review price note", () => {
+  it("includes a fixed architecture review price", () => {
     const review = getServiceBySlug("architecture-review");
-    expect(review?.priceNote).toMatch(/€1,950/);
+    expect(review?.priceNote).toMatch(/€2,500 fixed/);
+  });
+
+  it("leads with solution architecture", () => {
+    expect(services[0]?.slug).toBe("data-ai-solution-architecture");
+    expect(services[0]?.title).toMatch(/solution architecture/i);
   });
 });
 
@@ -59,6 +70,39 @@ describe("site content", () => {
       "/research",
       "/about",
       "/contact",
+    ]);
+  });
+
+  it("exposes legal routes", () => {
+    expect(legalLinks.map((link) => link.href)).toEqual([
+      "/privacy",
+      "/cookies",
+      "/terms",
+    ]);
+  });
+
+  it("keeps homepage engagements to three project models", () => {
+    expect(homepageEngagements).toHaveLength(3);
+    expect(homepageEngagements.map((item) => item.name)).toEqual([
+      "Architecture Review",
+      "Solution Architecture",
+      "Data & AI Platform Architecture",
+    ]);
+  });
+
+  it("publishes only the Architecture Review price", () => {
+    expect(homepageEngagements[0]?.price).toBe("€2,500 fixed");
+    expect(homepageEngagements.slice(1).every((item) => item.price === null)).toBe(
+      true,
+    );
+  });
+
+  it("uses Understand → Design → Validate → Transfer", () => {
+    expect(processSteps.map((step) => step.title)).toEqual([
+      "Understand",
+      "Design",
+      "Validate",
+      "Transfer",
     ]);
   });
 });

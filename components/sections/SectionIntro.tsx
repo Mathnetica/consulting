@@ -17,7 +17,7 @@ export function SectionIntro({
   return (
     <FadeIn className={cn("max-w-3xl", className)}>
       {eyebrow ? (
-        <p className="mb-4 text-xs tracking-[0.16em] text-muted-foreground uppercase">
+        <p className="mb-4 text-sm tracking-[0.14em] text-muted-foreground uppercase">
           {eyebrow}
         </p>
       ) : null}

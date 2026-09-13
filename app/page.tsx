@@ -1,18 +1,26 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { LargeStatement } from "@/components/sections/LargeStatement";
-import { Principles } from "@/components/sections/Principles";
-import { ServiceSection } from "@/components/sections/ServiceSection";
+import { Expertise } from "@/components/sections/Expertise";
+import { Engagements } from "@/components/sections/Engagements";
 import { Credentials } from "@/components/sections/Credentials";
 import { ResearchList } from "@/components/sections/ResearchList";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
-import { TargetClients } from "@/components/sections/TargetClients";
 import { CTASection } from "@/components/sections/CTASection";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { FadeIn } from "@/components/ui/fade-in";
-import { services } from "@/lib/content/services";
 import { researchArticles } from "@/lib/content/research";
-import { researchAreas } from "@/lib/content/site";
+import { siteConfig } from "@/lib/content/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Mathnetica — Data & AI Platform Engineering",
+    description: siteConfig.description,
+    url: "/",
+  },
+};
 
 export default function HomePage() {
   return (
@@ -20,52 +28,47 @@ export default function HomePage() {
       <Hero />
 
       <section className="container-site section-space border-t border-border">
-        <div className="container-content">
-          <LargeStatement statement="AI is only as good as the platform beneath it.">
+        <div className="container-content max-w-3xl">
+          <LargeStatement statement="We kept seeing the same problem.">
             <p>
-              Production AI depends on reliable data, infrastructure,
-              architecture, security, observability and engineering discipline.
+              Years spent working across private companies and public
+              organizations showed us a recurring pattern.
             </p>
-            <p>Mathnetica helps organizations design and build that foundation.</p>
+            <p>
+              The people making technical decisions were becoming increasingly
+              disconnected from the people building the systems.
+            </p>
+            <p>Mathnetica was created to close that gap.</p>
           </LargeStatement>
         </div>
       </section>
 
       <section className="container-site section-space border-t border-border">
-        <div className="container-content">
-          <LargeStatement statement="Architecture by engineers.">
-            <p>Our architects come from software engineering.</p>
+        <div className="container-content max-w-3xl">
+          <LargeStatement statement="Architects who still engineer.">
+            <p>Our background is software engineering.</p>
             <p>
-              We have spent years building distributed systems, cloud platforms,
-              data infrastructure and production software before moving into
-              architecture.
+              We have built complex systems, platforms and infrastructure before
+              designing them for others.
             </p>
-            <p>We do not separate architecture from engineering.</p>
-            <p>We design systems we understand deeply enough to build.</p>
+            <p>That experience shapes every decision we make.</p>
           </LargeStatement>
-          <Principles />
         </div>
       </section>
 
       <section
-        id="services"
+        id="expertise"
         className="container-site section-space border-t border-border"
       >
         <div className="container-content">
-          <SectionIntro
-            eyebrow="Services"
-            title="What we engineer."
-            description="Four focused service lines for organizations building serious Data & AI systems."
-          />
-          <div className="mt-14 md:mt-16">
-            <ServiceSection services={services} />
-          </div>
-          <FadeIn className="mt-8">
+          <SectionIntro eyebrow="Expertise" title="Where we work." />
+          <Expertise />
+          <FadeIn className="mt-10">
             <Link
               href="/services"
-              className="text-sm underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+              className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
             >
-              View services in detail
+              Explore our expertise
             </Link>
           </FadeIn>
         </div>
@@ -73,18 +76,21 @@ export default function HomePage() {
 
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
-          <LargeStatement statement="Senior enough to architect. Technical enough to build.">
-            <p>
-              Mathnetica combines architecture expertise with years of hands-on
-              engineering experience.
-            </p>
-            <p>
-              Our specialists understand enterprise architecture, but also code,
-              infrastructure, distributed systems, cloud platforms, Kubernetes,
-              data engineering and production AI.
-            </p>
-          </LargeStatement>
-          <Credentials />
+          <SectionIntro
+            eyebrow="Engagements"
+            title="How organizations work with us."
+            description="Time-boxed work with clear outcomes."
+          />
+          <Engagements variant="home" />
+        </div>
+      </section>
+
+      <section className="container-site section-space border-t border-border">
+        <div className="container-content">
+          <SectionIntro title="Engineering depth matters." />
+          <div className="mt-10 md:mt-14">
+            <Credentials />
+          </div>
         </div>
       </section>
 
@@ -92,40 +98,27 @@ export default function HomePage() {
         <div className="container-content">
           <SectionIntro
             eyebrow="Research"
-            title="Research keeps us sharp."
-            description="We maintain an active research practice around AI infrastructure, search, distributed systems and emerging architecture patterns."
+            title="Research is part of the work."
+            description="We investigate the technologies and patterns shaping the next generation of Data & AI systems."
           />
-          <FadeIn className="mt-10">
-            <ul className="flex flex-wrap gap-x-6 gap-y-3">
-              {researchAreas.map((area) => (
-                <li key={area.label}>
-                  <Link
-                    href={area.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {area.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
           <div className="mt-12 md:mt-14">
             <ResearchList articles={researchArticles.slice(0, 3)} compact />
           </div>
+          <FadeIn className="mt-8">
+            <Link
+              href="/research"
+              className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+            >
+              All research
+            </Link>
+          </FadeIn>
         </div>
       </section>
 
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
-          <SectionIntro title="Small teams. Senior people. Real systems." />
+          <SectionIntro title="How we work." />
           <ProcessSteps />
-        </div>
-      </section>
-
-      <section className="container-site section-space border-t border-border">
-        <div className="container-content">
-          <SectionIntro title="Built for complex environments." />
-          <TargetClients />
         </div>
       </section>
 

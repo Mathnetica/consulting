@@ -76,18 +76,18 @@ export function ContactForm() {
 
       <Field
         id="message"
-        label="What are you building?"
-        error={state.fieldErrors?.message}
-      >
-        <Textarea
-          id="message"
-          name="message"
-          required
-          rows={6}
-          aria-invalid={Boolean(state.fieldErrors?.message)}
-          className="rounded-md border-border bg-transparent"
-        />
-      </Field>
+          label="What architecture are you shaping?"
+          error={state.fieldErrors?.message}
+        >
+          <Textarea
+            id="message"
+            name="message"
+            required
+            rows={6}
+            aria-invalid={Boolean(state.fieldErrors?.message)}
+            className="rounded-md border-border bg-transparent"
+          />
+        </Field>
 
       {state.error && !state.fieldErrors ? (
         <p className="text-sm text-destructive" role="alert">
@@ -119,7 +119,7 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <Label htmlFor={id} className="text-sm font-normal">
+      <Label htmlFor={id} className="text-base font-normal">
         {label}
       </Label>
       {children}

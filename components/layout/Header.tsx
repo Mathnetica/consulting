@@ -40,21 +40,21 @@ export function Header() {
           <div className="relative flex h-14 items-center justify-between md:h-[4.25rem]">
             <Link
               href="/"
-              className="relative z-[60] text-[13px] font-semibold tracking-[0.22em] uppercase transition-opacity hover:opacity-60"
+              className="relative z-[60] text-xl font-semibold tracking-[0.12em] uppercase transition-opacity hover:opacity-60 md:text-xl"
               onClick={() => setOpen(false)}
             >
               {siteConfig.name}
             </Link>
 
             <nav
-              className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex"
+              className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 lg:flex"
               aria-label="Primary"
             >
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[13px] text-foreground/70 transition-colors hover:text-foreground"
+                  className="text-base text-foreground/75 transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </Link>
@@ -65,15 +65,15 @@ export function Header() {
               <div className="hidden items-center gap-2 md:flex">
                 <Link
                   href="/contact"
-                  className="inline-flex h-9 items-center rounded-full bg-foreground px-4 text-[13px] text-background transition-opacity hover:opacity-85"
+                  className="inline-flex h-10 items-center rounded-full bg-foreground px-5 text-[15px] text-background transition-opacity hover:opacity-85"
                 >
-                  Start a project
+                  {siteConfig.primaryCta}
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex h-9 items-center rounded-full bg-foreground/[0.06] px-4 text-[13px] text-foreground transition-colors hover:bg-foreground/[0.1]"
+                  className="inline-flex h-10 items-center rounded-full bg-foreground/[0.06] px-5 text-[15px] text-foreground transition-colors hover:bg-foreground/[0.1]"
                 >
-                  Explore services
+                  {siteConfig.secondaryCta}
                 </Link>
               </div>
 
@@ -151,7 +151,7 @@ export function Header() {
                     onClick={() => setOpen(false)}
                     tabIndex={open ? 0 : -1}
                   >
-                    <span className="w-7 text-[11px] tracking-[0.14em] text-muted-foreground">
+                    <span className="w-8 text-sm tracking-[0.12em] text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="text-[clamp(2.75rem,11vw,4rem)] font-semibold leading-[0.95] tracking-[-0.05em] transition-opacity group-hover:opacity-50">
@@ -172,13 +172,13 @@ export function Header() {
           >
             <Link
               href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-foreground text-sm font-medium text-background"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-foreground text-base font-medium text-background"
               onClick={() => setOpen(false)}
               tabIndex={open ? 0 : -1}
             >
-              Start a project
+              {siteConfig.primaryCta}
             </Link>
-            <div className="flex justify-between gap-4 text-sm text-muted-foreground">
+            <div className="flex justify-between gap-4 text-base text-muted-foreground">
               <p>{siteConfig.locationShort}</p>
               <a
                 href={`mailto:${siteConfig.email}`}
