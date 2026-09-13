@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Mathnetica">
+  <circle cx="16" cy="16" r="16" fill="#0A0A0A"/>
+  <path
+    fill="#FFFFFF"
+    d="M8.75 23.25V8.75h3.05l4.2 11.05 4.2-11.05h3.05v14.5h-2.55V12.4l-3.85 10.85h-1.7L11.3 12.4v10.85H8.75z"
+  />
+</svg>
