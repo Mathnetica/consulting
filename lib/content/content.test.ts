@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { getServiceBySlug, services } from "@/lib/content/services";
 import {
+  filterResearchArticles,
   getResearchBySlug,
+  paginateResearchArticles,
+  RESEARCH_PAGE_SIZE,
   researchArticles,
   researchCategories,
 } from "@/lib/content/research";
@@ -58,6 +61,21 @@ describe("research content", () => {
       expect(article.body.length).toBeGreaterThan(0);
       expect(getResearchBySlug(article.slug)).toEqual(article);
     }
+  });
+
+  it("filters by category and paginates above page size", () => {
+    const hybrid = filterResearchArticles("Hybrid Search");
+    expect(hybrid.every((article) => article.category === "Hybrid Search")).toBe(
+      true,
+    );
+
+    const paged = paginateResearchArticles(
+      researchArticles,
+      1,
+      RESEARCH_PAGE_SIZE,
+    );
+    expect(paged.showPagination).toBe(researchArticles.length > RESEARCH_PAGE_SIZE);
+    expect(paged.items.length).toBeLessThanOrEqual(RESEARCH_PAGE_SIZE);
   });
 });
 

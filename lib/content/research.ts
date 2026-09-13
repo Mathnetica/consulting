@@ -101,3 +101,58 @@ export const researchArticles: ResearchArticle[] = [
 export function getResearchBySlug(slug: string) {
   return researchArticles.find((article) => article.slug === slug);
 }
+
+export const RESEARCH_PAGE_SIZE = 10;
+
+export type ResearchCategory = (typeof researchCategories)[number];
+
+export function isResearchCategory(value: string): value is ResearchCategory {
+  return (researchCategories as readonly string[]).includes(value);
+}
+
+export function getSortedResearchArticles() {
+  return [...researchArticles].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function filterResearchArticles(category?: string | null) {
+  const sorted = getSortedResearchArticles();
+  if (!category || !isResearchCategory(category)) {
+    return sorted;
+  }
+  return sorted.filter((article) => article.category === category);
+}
+
+export function paginateResearchArticles(
+  articles: ResearchArticle[],
+  page: number,
+  pageSize = RESEARCH_PAGE_SIZE,
+) {
+  const total = articles.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const currentPage = Math.min(Math.max(1, page), totalPages);
+  const start = (currentPage - 1) * pageSize;
+
+  return {
+    items: articles.slice(start, start + pageSize),
+    total,
+    totalPages,
+    currentPage,
+    pageSize,
+    showPagination: total > pageSize,
+  };
+}
+
+export function buildResearchHref(options: {
+  category?: string | null;
+  page?: number;
+}) {
+  const params = new URLSearchParams();
+  if (options.category && isResearchCategory(options.category)) {
+    params.set("category", options.category);
+  }
+  if (options.page && options.page > 1) {
+    params.set("page", String(options.page));
+  }
+  const query = params.toString();
+  return query ? `/research?${query}` : "/research";
+}

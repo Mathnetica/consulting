@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { ResearchList } from "@/components/sections/ResearchList";
 import { ResearchLab } from "@/components/sections/ResearchLab";
+import { ResearchFilter } from "@/components/sections/ResearchFilter";
+import { ResearchPagination } from "@/components/sections/ResearchPagination";
 import { FadeIn } from "@/components/ui/fade-in";
 import {
-  researchArticles,
-  researchCategories,
+  filterResearchArticles,
+  isResearchCategory,
+  paginateResearchArticles,
 } from "@/lib/content/research";
 
 export const metadata: Metadata = {
@@ -15,7 +18,28 @@ export const metadata: Metadata = {
   alternates: { canonical: "/research" },
 };
 
-export default function ResearchPage() {
+type ResearchPageProps = {
+  searchParams: Promise<{
+    category?: string | string[];
+    page?: string | string[];
+  }>;
+};
+
+function firstParam(value?: string | string[]) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+export default async function ResearchPage({ searchParams }: ResearchPageProps) {
+  const params = await searchParams;
+  const rawCategory = firstParam(params.category);
+  const category =
+    rawCategory && isResearchCategory(rawCategory) ? rawCategory : null;
+  const page = Number.parseInt(firstParam(params.page) ?? "1", 10) || 1;
+
+  const filtered = filterResearchArticles(category);
+  const { items, total, totalPages, currentPage, showPagination } =
+    paginateResearchArticles(filtered, page);
+
   return (
     <>
       <section className="container-site pt-20 pb-12 md:pt-28 md:pb-16">
@@ -25,15 +49,6 @@ export default function ResearchPage() {
             title="Research is part of the work."
             description="We investigate the technologies and patterns shaping the next generation of Data & AI systems."
           />
-          <FadeIn className="mt-10">
-            <ul className="flex flex-wrap gap-x-5 gap-y-2">
-              {researchCategories.map((category) => (
-                <li key={category} className="text-base text-muted-foreground">
-                  {category}
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
         </div>
       </section>
 
@@ -42,13 +57,31 @@ export default function ResearchPage() {
       <section className="container-site pt-16 pb-24 md:pt-24 md:pb-40">
         <div className="container-content">
           <FadeIn className="mb-10 md:mb-12">
-            <h2 className="text-section">Selected notes</h2>
+            <ResearchFilter activeCategory={category} />
+          </FadeIn>
+
+          <FadeIn className="mb-10 md:mb-12">
+            <h2 className="text-section">
+              {category ? category : "Selected notes"}
+            </h2>
             <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
-              Short technical notes from the practice — retrieval, platforms and
-              production AI systems.
+              {total === 0
+                ? "No notes in this category yet."
+                : category
+                  ? `${total} note${total === 1 ? "" : "s"} in this category.`
+                  : "Short technical notes from the practice — retrieval, platforms and production AI systems."}
             </p>
           </FadeIn>
-          <ResearchList articles={researchArticles} />
+
+          {items.length > 0 ? <ResearchList articles={items} /> : null}
+
+          {showPagination ? (
+            <ResearchPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              category={category}
+            />
+          ) : null}
         </div>
       </section>
     </>
