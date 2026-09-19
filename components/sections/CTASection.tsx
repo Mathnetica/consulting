@@ -11,7 +11,7 @@ type CTASectionProps = {
 
 export function CTASection({
   title = "Building in the open.",
-  description = "Follow QBridge and the research notes — or get in touch about hybrid classical–quantum systems.",
+  description = "Follow Quancave and the research notes — or get in touch about hybrid classical–quantum systems.",
   ctaLabel = siteConfig.finalCta,
   ctaHref = "/contact",
 }: CTASectionProps) {

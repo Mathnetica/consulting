@@ -39,7 +39,7 @@ export const researchArticles: ResearchArticle[] = [
       "Classical traces and metrics do not automatically explain a hybrid job. Hybrid systems need a shared identity across CPU, GPU and QPU stages.",
     body: [
       "A hybrid pipeline that loses correlation between classical prep, quantum execution and post-processing is hard to operate. Observability has to start with job identity, not with provider dashboards alone.",
-      "OpenTelemetry-style traces across the classical control path, plus provider-native execution metadata, are a practical baseline for QBridge-style orchestration.",
+      "OpenTelemetry-style traces across the classical control path, plus provider-native execution metadata, are a practical baseline for Quancave-style orchestration.",
       "The goal is operable systems: knowing where time and money went, and which stage failed — classical or quantum.",
     ],
   },
@@ -52,7 +52,7 @@ export const researchArticles: ResearchArticle[] = [
       "Hardware independence is a product claim only when the orchestration layer survives a second backend — not when the first demo works.",
     body: [
       "Every provider ships its own SDK and mental model. Portability starts with a thin execution contract: what is submitted, what is returned, and what is backend-specific.",
-      "QBridge's early bet is not a universal compiler. It is a stable job lifecycle with pluggable backends, so classical infrastructure does not rewrite itself for each QPU vendor.",
+      "Quancave's early bet is not a universal compiler. It is a stable job lifecycle with pluggable backends, so classical infrastructure does not rewrite itself for each QPU vendor.",
       "True portability will expose painful differences in gates, noise and queues. That pain is the research agenda — not a reason to avoid abstraction.",
     ],
   },
@@ -91,7 +91,7 @@ export const researchArticles: ResearchArticle[] = [
       "v0.1 orchestration should submit, execute, report status and return results. Everything else is a temptation until real usage demands it.",
     body: [
       "The failure mode of early quantum platforms is feature gravity: scheduling AI, multi-cloud magic and full compiler stacks before a single reliable job path exists.",
-      "QBridge starts with a boring lifecycle. Simulator first. One provider second. Abstraction only where the second backend forces it.",
+      "Quancave starts with a boring lifecycle. Simulator first. One provider second. Abstraction only where the second backend forces it.",
       "Saying no to scope is how a one-person lab stays coherent for years.",
     ],
   },

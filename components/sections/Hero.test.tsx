@@ -8,14 +8,13 @@ describe("Hero", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /building the software\s+infrastructure between\s+classical and quantum\s+computing/i,
+        name: /quantum\s+systems engineering/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText(/amsterdam · netherlands/i)).toBeInTheDocument();
-    expect(screen.getByText(/quantum systems engineering/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /explore qbridge/i }),
-    ).toHaveAttribute("href", "/qbridge");
+      screen.getByRole("link", { name: /explore quancave/i }),
+    ).toHaveAttribute("href", "/quancave");
     expect(screen.getByRole("link", { name: /^github$/i })).toHaveAttribute(
       "href",
       "https://github.com/mathnetica",

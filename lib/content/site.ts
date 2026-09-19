@@ -12,13 +12,13 @@ export const siteConfig = {
   },
   linkedin: "https://www.linkedin.com/company/mathnetica",
   github: "https://github.com/mathnetica",
-  githubQBridge: "https://github.com/mathnetica/qbridge",
+  githubQuancave: "https://github.com/mathnetica/quancave",
   description:
     "Mathnetica is an independent quantum software research and engineering lab in the Netherlands — software infrastructure for hybrid classical–quantum computing.",
   tagline: "Building the software infrastructure between classical and quantum computing.",
   focus: "Quantum Systems Engineering",
-  primaryCta: "Explore QBridge",
-  primaryCtaHref: "/qbridge",
+  primaryCta: "Explore Quancave",
+  primaryCtaHref: "/quancave",
   secondaryCta: "GitHub",
   secondaryCtaHref: "https://github.com/mathnetica",
   finalCta: "Get in touch",
@@ -26,7 +26,7 @@ export const siteConfig = {
 
 /** Primary nav — lab model: product, research, about. Contact via CTA. */
 export const navLinks = [
-  { href: "/qbridge", label: "QBridge" },
+  { href: "/quancave", label: "Quancave" },
   { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
 ] as const;
@@ -72,13 +72,13 @@ export const aboutValues = [
   "Systems that can be operated, not only drawn",
 ] as const;
 
-export const qbridge = {
-  name: "QBridge",
+export const quancave = {
+  name: "Quancave",
   status: "Experimental",
   tagline: "An experimental orchestration layer for hybrid quantum-classical workloads.",
   summary:
-    "QBridge is Mathnetica's flagship open-source project: submit quantum jobs from classical infrastructure, track status, and collect results — starting with simulators, then real QPU backends.",
-  github: "https://github.com/mathnetica/qbridge",
+    "Quancave is Mathnetica's flagship open-source project: submit quantum jobs from classical infrastructure, track status, and collect results — starting with simulators, then real QPU backends.",
+  github: "https://github.com/mathnetica/quancave",
   pipeline: ["submit", "execute", "status", "result"] as const,
   phases: [
     {

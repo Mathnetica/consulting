@@ -7,7 +7,7 @@ import {
   researchArticles,
   researchCategories,
 } from "@/lib/content/research";
-import { navLinks, qbridge, siteConfig, workAreas } from "@/lib/content/site";
+import { navLinks, quancave, siteConfig, workAreas } from "@/lib/content/site";
 import { legalLinks } from "@/lib/content/legal";
 
 describe("research content", () => {
@@ -49,16 +49,16 @@ describe("site content", () => {
     expect(siteConfig.focus).toBe("Quantum Systems Engineering");
     expect(siteConfig.email).toBe("research@mathnetica.com");
     expect(navLinks.map((link) => link.href)).toEqual([
-      "/qbridge",
+      "/quancave",
       "/research",
       "/about",
     ]);
   });
 
-  it("defines three work areas and QBridge", () => {
+  it("defines three work areas and Quancave", () => {
     expect(workAreas).toHaveLength(3);
-    expect(qbridge.name).toBe("QBridge");
-    expect(qbridge.pipeline).toEqual(["submit", "execute", "status", "result"]);
+    expect(quancave.name).toBe("Quancave");
+    expect(quancave.pipeline).toEqual(["submit", "execute", "status", "result"]);
   });
 
   it("exposes legal routes", () => {

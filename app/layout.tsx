@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "Quantum Systems Engineering",
     "Hybrid classical-quantum computing",
     "Quantum infrastructure software",
-    "QBridge",
+    "Quancave",
     "Kubernetes quantum",
     "QPU orchestration",
     "Amsterdam",

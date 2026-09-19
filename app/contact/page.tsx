@@ -6,7 +6,7 @@ import { assessment, siteConfig } from "@/lib/content/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Mathnetica about QBridge, research, or a Quantum Systems Architecture Assessment.",
+    "Contact Mathnetica about Quancave, research, or a Quantum Systems Architecture Assessment.",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,7 +20,7 @@ export default function ContactPage() {
           </p>
           <h1 className="text-statement">Get in touch.</h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-            QBridge, research collaboration, or a{" "}
+            Quancave, research collaboration, or a{" "}
             {assessment.name.toLowerCase()}. We work with teams exploring hybrid
             classical–quantum systems.
           </p>

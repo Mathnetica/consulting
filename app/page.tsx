@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { FadeIn } from "@/components/ui/fade-in";
 import { getSortedResearchArticles } from "@/lib/content/research";
-import { qbridge, siteConfig } from "@/lib/content/site";
+import { quancave, siteConfig } from "@/lib/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -39,15 +39,15 @@ export default function HomePage() {
         <div className="container-content">
           <SectionIntro
             eyebrow="Open source"
-            title={qbridge.name}
-            description={qbridge.tagline}
+            title={quancave.name}
+            description={quancave.tagline}
           />
           <FadeIn className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link href="/qbridge" className="btn-pill-primary">
-              Explore QBridge
+            <Link href="/quancave" className="btn-pill-primary">
+              Explore Quancave
             </Link>
             <a
-              href={qbridge.github}
+              href={quancave.github}
               className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
               target="_blank"
               rel="noreferrer"
