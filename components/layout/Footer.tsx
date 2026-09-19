@@ -3,6 +3,11 @@ import { CookieSettingsButton } from "@/components/cookies/CookieSettingsButton"
 import { legalLinks } from "@/lib/content/legal";
 import { navLinks, siteConfig } from "@/lib/content/site";
 
+const footerNav = [
+  ...navLinks,
+  { href: "/contact", label: "Contact" },
+] as const;
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -14,7 +19,10 @@ export function Footer() {
             <p className="text-xl font-semibold tracking-[0.12em] uppercase">
               {siteConfig.name}
             </p>
-            <p className="mt-3 text-base text-muted-foreground">
+            <p className="mt-3 text-base text-foreground/80">
+              {siteConfig.focus}
+            </p>
+            <p className="mt-2 text-base text-muted-foreground">
               {siteConfig.locationShort}
             </p>
           </div>
@@ -24,7 +32,7 @@ export function Footer() {
               Navigate
             </p>
             <ul className="mt-4 space-y-2">
-              {navLinks.map((link) => (
+              {footerNav.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -65,22 +73,22 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href={siteConfig.linkedin}
-                  className="text-base transition-opacity hover:opacity-70"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
                   href={siteConfig.github}
                   className="text-base transition-opacity hover:opacity-70"
                   target="_blank"
                   rel="noreferrer"
                 >
                   GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.linkedin}
+                  className="text-base transition-opacity hover:opacity-70"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
                 </a>
               </li>
               <li>

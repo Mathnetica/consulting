@@ -3,13 +3,12 @@ import { SectionIntro } from "@/components/sections/SectionIntro";
 import { LargeStatement } from "@/components/sections/LargeStatement";
 import { CTASection } from "@/components/sections/CTASection";
 import { FadeIn } from "@/components/ui/fade-in";
-import { Credentials } from "@/components/sections/Credentials";
-import { aboutValues, assessment, siteConfig } from "@/lib/content/site";
+import { aboutValues, siteConfig } from "@/lib/content/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Mathnetica is an independent quantum software research and engineering lab based in the Netherlands.",
+    "Mathnetica is an independent software research and engineering lab in Amsterdam focused on Quantum Infrastructure Engineering.",
   alternates: { canonical: "/about" },
 };
 
@@ -18,17 +17,27 @@ export default function AboutPage() {
     <>
       <section className="container-site pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="container-content">
-          <LargeStatement statement="An independent quantum software lab.">
+          <LargeStatement statement="Software infrastructure for hybrid classical–quantum computing.">
             <p>
-              {siteConfig.name} is based in the Netherlands. We research and
-              build software infrastructure for hybrid classical–quantum
-              computing — the layer between cloud/HPC/Kubernetes and QPU
-              backends.
+              Mathnetica is an independent software research and engineering lab
+              based in Amsterdam, Netherlands.
             </p>
             <p>
-              We do not build quantum computers. We do not chase every
-              application domain. We stay in one specialization:{" "}
-              {siteConfig.focus}.
+              We focus on {siteConfig.focus}: the software systems required to
+              operate quantum workloads alongside classical computing
+              infrastructure.
+            </p>
+            <p>
+              Quantum processors introduce a fundamentally different class of
+              compute. Rather than building quantum hardware, Mathnetica works
+              on the infrastructure around it — workload execution, resource
+              management, orchestration, operations and integration with modern
+              cloud and HPC environments.
+            </p>
+            <p>
+              We build open-source software and publish the engineering lessons
+              we learn along the way. Research supports the platform — it is
+              not a separate academic brand.
             </p>
           </LargeStatement>
         </div>
@@ -53,35 +62,22 @@ export default function AboutPage() {
       </section>
 
       <section className="container-site section-space border-t border-border">
-        <div className="container-content">
-          <SectionIntro
-            title="Background."
-            description="Cloud and platform engineering meeting quantum systems — not physics theatre."
-          />
-          <div className="mt-10 md:mt-14">
-            <Credentials />
-          </div>
-        </div>
-      </section>
-
-      <section className="container-site section-space border-t border-border">
         <div className="container-content max-w-3xl">
           <SectionIntro
-            eyebrow="When asked"
-            title={assessment.name}
-            description={assessment.description}
+            title="What we do not build."
+            description="QPU hardware, qubits, cryogenics, control electronics — or primary work on quantum algorithms and domain applications. Our layer sits between applications and quantum providers."
           />
-          <FadeIn className="mt-6 text-base text-muted-foreground md:text-lg">
-            <p>
-              {assessment.duration}. {assessment.note}
-            </p>
-          </FadeIn>
         </div>
       </section>
 
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
-          <CTASection />
+          <CTASection
+            title="Explore the platform."
+            description="Open-source infrastructure for operating quantum workloads alongside classical systems."
+            ctaLabel={siteConfig.primaryCta}
+            ctaHref="/platform"
+          />
         </div>
       </section>
     </>

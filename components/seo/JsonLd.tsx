@@ -40,11 +40,11 @@ export function JsonLd() {
     },
     email: siteConfig.email,
     knowsAbout: [
-      "Quantum Systems Engineering",
+      "Quantum Infrastructure Engineering",
       "Hybrid classical-quantum computing",
-      "Quantum infrastructure software",
-      "Kubernetes quantum workloads",
-      "QPU orchestration",
+      "QPU infrastructure",
+      "Quantum workloads",
+      "Cloud-native quantum software",
     ],
   };
 

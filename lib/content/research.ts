@@ -1,3 +1,5 @@
+export type ResearchStatus = "published" | "in-progress" | "planned";
+
 export type ResearchArticle = {
   slug: string;
   title: string;
@@ -5,94 +7,105 @@ export type ResearchArticle = {
   date: string;
   abstract: string;
   body: string[];
+  status: ResearchStatus;
 };
 
 export const researchCategories = [
-  "Orchestration",
-  "Observability",
-  "Portability",
-  "Hybrid Architectures",
-  "Resource Estimation",
-  "Kubernetes",
+  "Workloads",
+  "Resources",
+  "Scheduling",
+  "Workflows",
+  "Operations",
+  "Control Plane",
 ] as const;
 
+/**
+ * Published notes have body content.
+ * In-progress / planned items are research directions that support the platform.
+ */
 export const researchArticles: ResearchArticle[] = [
   {
     slug: "running-quantum-workloads-from-kubernetes",
     title: "Running Quantum Workloads from Kubernetes",
-    category: "Kubernetes",
+    category: "Workloads",
     date: "2026-09-01",
+    status: "in-progress",
     abstract:
-      "What it means to treat a QPU path like any other workload runtime — CRDs, status, ownership — without pretending quantum is just another microservice.",
+      "What changes when quantum execution becomes part of a cloud-native workload — without making Kubernetes Mathnetica's identity.",
     body: [
-      "Kubernetes is where many classical platforms already live. The question for hybrid systems is not whether to invent a new control plane, but how far a QuantumJob abstraction can go before quantum-specific constraints break the model.",
-      "Useful early design: a narrow CRD that captures circuit or program reference, shots, backend preference and result location — then an operator that talks to a simulator or provider API.",
-      "The hard parts appear later: queue semantics, calibration windows, cost, and what 'failed' means when the backend is a shared QPU. Those should be learned from real runs, not invented in a slide deck.",
+      "Kubernetes provides mature primitives for declarative resources, controllers and scheduling. Quantum execution adds remote queues, provider semantics and hardware constraints those primitives never assumed.",
+      "This note frames Kubernetes as an initial laboratory for hybrid workloads — a place to test control-plane ideas that should remain meaningful on HPC or other environments later.",
+      "Status: in progress. Early experiments only; not a claim of production QPU scheduling on Kubernetes.",
     ],
   },
   {
-    slug: "observability-for-hybrid-quantum-classical-workloads",
-    title: "Observability for Hybrid Quantum-Classical Workloads",
-    category: "Observability",
-    date: "2026-08-12",
+    slug: "designing-a-qpu-resource-model",
+    title: "Designing a QPU Resource Model",
+    category: "Resources",
+    date: "2026-08-20",
+    status: "planned",
     abstract:
-      "Classical traces and metrics do not automatically explain a hybrid job. Hybrid systems need a shared identity across CPU, GPU and QPU stages.",
+      "CPU and GPU abstractions do not map directly to quantum processors. What information should infrastructure understand about a QPU?",
     body: [
-      "A hybrid pipeline that loses correlation between classical prep, quantum execution and post-processing is hard to operate. Observability has to start with job identity, not with provider dashboards alone.",
-      "OpenTelemetry-style traces across the classical control path, plus provider-native execution metadata, are a practical baseline for Quancave-style orchestration.",
-      "The goal is operable systems: knowing where time and money went, and which stage failed — classical or quantum.",
+      "A useful QPU resource model may need qubits, topology, queue characteristics, fidelity signals, cost and provider identity — not just capacity counts.",
+      "Mathnetica treats this as a platform research problem: define the minimum honest model before claiming automatic scheduling.",
+      "Status: planned research topic supporting the Mathnetica Platform resource layer.",
     ],
   },
   {
-    slug: "portable-quantum-workloads-across-heterogeneous-qpus",
-    title: "Portable Quantum Workloads Across Heterogeneous QPUs",
-    category: "Portability",
-    date: "2026-07-20",
+    slug: "scheduling-across-heterogeneous-qpus",
+    title: "Scheduling Across Heterogeneous QPUs",
+    category: "Scheduling",
+    date: "2026-08-05",
+    status: "planned",
     abstract:
-      "Hardware independence is a product claim only when the orchestration layer survives a second backend — not when the first demo works.",
+      "How should infrastructure make scheduling decisions when backends differ in availability, topology, queue time, fidelity and execution characteristics?",
     body: [
-      "Every provider ships its own SDK and mental model. Portability starts with a thin execution contract: what is submitted, what is returned, and what is backend-specific.",
-      "Quancave's early bet is not a universal compiler. It is a stable job lifecycle with pluggable backends, so classical infrastructure does not rewrite itself for each QPU vendor.",
-      "True portability will expose painful differences in gates, noise and queues. That pain is the research agenda — not a reason to avoid abstraction.",
+      "Heterogeneous QPUs break naive portability. Scheduling research must separate local intent from remote provider queues and avoid pretending backends are interchangeable.",
+      "We are researching decision inputs and failure modes — not shipping an automatic multi-QPU scheduler today.",
+      "Status: planned.",
     ],
   },
   {
-    slug: "cpu-gpu-qpu-orchestration-patterns",
-    title: "CPU / GPU / QPU Orchestration Patterns",
-    category: "Hybrid Architectures",
-    date: "2026-06-15",
+    slug: "hybrid-cpu-gpu-qpu-workflows",
+    title: "Hybrid CPU/GPU/QPU Workflows",
+    category: "Workflows",
+    date: "2026-07-18",
+    status: "in-progress",
     abstract:
-      "Most of the work stays classical. The architectural question is which fragments should ever touch a QPU — and how the system decides.",
+      "Exploring workflow orchestration across fundamentally different compute resources — one workload, multiple classes of compute.",
     body: [
-      "Hybrid computing is not 'replace the cluster with qubits'. It is selective offload: classical systems do the bulk of the work; quantum paths handle narrow, well-justified fragments.",
-      "Patterns worth studying early: explicit stage graphs, synchronous vs queued QPU calls, and clear ownership of results back into classical state.",
-      "If the classical baseline already solves the problem, the honest architecture says so. That decision belongs in systems design, not in marketing.",
+      "Quantum applications increasingly combine classical preprocessing, optimization, quantum execution and classical post-processing.",
+      "Mathnetica treats the complete workflow as an infrastructure problem and intends to integrate mature workflow engines where useful rather than rewriting them.",
+      "Status: in progress. Conceptual and experimental work; not a claim of a finished hybrid workflow product.",
     ],
   },
   {
-    slug: "quantum-resource-estimation-in-cloud-environments",
-    title: "Quantum Resource Estimation in Cloud Environments",
-    category: "Resource Estimation",
-    date: "2026-05-08",
+    slug: "observability-across-the-quantum-classical-boundary",
+    title: "Observability Across the Quantum-Classical Boundary",
+    category: "Operations",
+    date: "2026-07-01",
+    status: "in-progress",
     abstract:
-      "Before paying for QPU time, teams need a classical-honest estimate of whether a quantum path can matter — under real cloud and queue constraints.",
+      "Following one workload across classical preprocessing, provider queues, quantum execution and classical post-processing.",
     body: [
-      "Resource estimation sits between algorithm theory and platform engineering: shots, circuit depth, queue delay, cost and classical alternatives.",
-      "In cloud settings the estimate must include provider limits and operational friction, not only asymptotic gate counts.",
-      "Assessment engagements should make this explicit. Sometimes the estimate ends the quantum path early — that is a successful outcome.",
+      "Observability is a platform capability, not Mathnetica's product. We intend to use OpenTelemetry, Prometheus and Grafana where appropriate and add quantum-specific context where generic stacks stop.",
+      "The research question is what a shared execution identity must carry across the quantum–classical boundary.",
+      "Status: in progress.",
     ],
   },
   {
-    slug: "what-a-quantumjob-api-should-not-do",
-    title: "What a QuantumJob API Should Not Do",
-    category: "Orchestration",
-    date: "2026-04-02",
+    slug: "operating-remote-quantum-resources",
+    title: "Operating Remote Quantum Resources",
+    category: "Control Plane",
+    date: "2026-06-10",
+    status: "planned",
     abstract:
-      "v0.1 orchestration should submit, execute, report status and return results. Everything else is a temptation until real usage demands it.",
+      "A QPU may be remote, queued and controlled by an external provider. What does this mean for modern infrastructure control planes?",
     body: [
-      "The failure mode of early quantum platforms is feature gravity: scheduling AI, multi-cloud magic and full compiler stacks before a single reliable job path exists.",
-      "Quancave starts with a boring lifecycle. Simulator first. One provider second. Abstraction only where the second backend forces it.",
-      "Saying no to scope is how a one-person lab stays coherent for years.",
+      "Remote QPUs challenge assumptions about locality, failure and reconciliation loops that cloud-native operators take for granted.",
+      "This topic studies control-plane implications for discovery, lifecycle and reliability when the device is not in the cluster.",
+      "Status: planned.",
     ],
   },
 ];
@@ -154,4 +167,15 @@ export function buildResearchHref(options: {
   }
   const query = params.toString();
   return query ? `/research?${query}` : "/research";
+}
+
+export function formatResearchStatus(status: ResearchStatus) {
+  switch (status) {
+    case "published":
+      return "Published";
+    case "in-progress":
+      return "In progress";
+    case "planned":
+      return "Planned";
+  }
 }

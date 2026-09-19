@@ -6,26 +6,27 @@ import { siteConfig } from "@/lib/content/site";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "Terms governing use of the Mathnetica website and general conditions for engaging our consulting services.",
+    "Terms governing use of the Mathnetica website and research materials.",
   alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Use" updated="13 September 2026">
+    <LegalPage title="Terms of Use" updated="19 September 2026">
       <LegalSection title="Agreement">
         <p>
           By using mathnetica.com you agree to these Terms of Use. If you do
           not agree, please do not use the site. Separate written agreements
-          apply to consulting engagements.
+          apply to any paid engagements.
         </p>
       </LegalSection>
 
       <LegalSection title="Who we are">
         <p>
-          The site is operated by <strong>{siteConfig.name}</strong>,{" "}
-          {siteConfig.address.street}, {siteConfig.address.postalCode}{" "}
-          {siteConfig.address.city}, {siteConfig.address.country}. Contact:{" "}
+          The site is operated by <strong>{siteConfig.name}</strong>, a quantum
+          infrastructure engineering lab at {siteConfig.address.street},{" "}
+          {siteConfig.address.postalCode} {siteConfig.address.city},{" "}
+          {siteConfig.address.country}. Contact:{" "}
           <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
         </p>
       </LegalSection>
@@ -40,7 +41,7 @@ export default function TermsPage() {
         <p>
           Research notes and articles are illustrative and may include
           placeholders or evolving views. They should not be relied on as
-          production architecture guidance without a formal engagement.
+          production infrastructure guidance without a formal engagement.
         </p>
       </LegalSection>
 

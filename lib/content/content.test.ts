@@ -7,14 +7,17 @@ import {
   researchArticles,
   researchCategories,
 } from "@/lib/content/research";
-import { navLinks, quancave, siteConfig, workAreas } from "@/lib/content/site";
+import { navLinks, platform, siteConfig, workAreas } from "@/lib/content/site";
 import { legalLinks } from "@/lib/content/legal";
 
 describe("research content", () => {
-  it("provides articles with unique slugs", () => {
+  it("provides articles with unique slugs and status", () => {
     expect(researchArticles.length).toBeGreaterThanOrEqual(4);
     const slugs = researchArticles.map((article) => article.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
+    for (const article of researchArticles) {
+      expect(["published", "in-progress", "planned"]).toContain(article.status);
+    }
   });
 
   it("keeps articles within known categories", () => {
@@ -26,8 +29,8 @@ describe("research content", () => {
   });
 
   it("filters by category and paginates above page size", () => {
-    const articles = filterResearchArticles("Kubernetes");
-    expect(articles.every((article) => article.category === "Kubernetes")).toBe(
+    const articles = filterResearchArticles("Workloads");
+    expect(articles.every((article) => article.category === "Workloads")).toBe(
       true,
     );
 
@@ -44,21 +47,30 @@ describe("research content", () => {
 });
 
 describe("site content", () => {
-  it("exposes quantum brand and lab navigation", () => {
+  it("exposes platform brand and navigation", () => {
     expect(siteConfig.name).toBe("Mathnetica");
-    expect(siteConfig.focus).toBe("Quantum Systems Engineering");
-    expect(siteConfig.email).toBe("research@mathnetica.com");
+    expect(siteConfig.focus).toBe("Quantum Infrastructure Engineering");
+    expect(siteConfig.primaryCtaHref).toBe("/platform");
     expect(navLinks.map((link) => link.href)).toEqual([
-      "/quancave",
+      "/platform",
       "/research",
       "/about",
     ]);
   });
 
-  it("defines three work areas and Quancave", () => {
-    expect(workAreas).toHaveLength(3);
-    expect(quancave.name).toBe("Quancave");
-    expect(quancave.pipeline).toEqual(["submit", "execute", "status", "result"]);
+  it("defines three build layers and one platform", () => {
+    expect(workAreas.map((area) => area.title)).toEqual([
+      "Hybrid Workloads",
+      "QPU Infrastructure",
+      "Quantum Operations",
+    ]);
+    expect(platform.name).toBe("Mathnetica Platform");
+    expect(platform.status).toBe("Experimental");
+    expect(platform.layers.map((layer) => layer.name)).toEqual([
+      "QPU Resources",
+      "Workloads",
+      "Operations",
+    ]);
   });
 
   it("exposes legal routes", () => {

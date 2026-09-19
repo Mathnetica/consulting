@@ -3,7 +3,6 @@ export const siteConfig = {
   email: "research@mathnetica.com",
   location: "Amsterdam · Netherlands",
   locationShort: "Amsterdam, Netherlands",
-  /** Postal address — Amsterdam Zuid (Stadionbuurt). */
   address: {
     street: "Patroclosstraat 2",
     postalCode: "1076 NG",
@@ -12,95 +11,94 @@ export const siteConfig = {
   },
   linkedin: "https://www.linkedin.com/company/mathnetica",
   github: "https://github.com/mathnetica",
-  githubQuancave: "https://github.com/mathnetica/quancave",
   description:
-    "Mathnetica is an independent quantum software research and engineering lab in the Netherlands — software infrastructure for hybrid classical–quantum computing.",
-  tagline: "Building the software infrastructure between classical and quantum computing.",
-  focus: "Quantum Systems Engineering",
-  primaryCta: "Explore Quancave",
-  primaryCtaHref: "/quancave",
+    "Mathnetica builds open-source software infrastructure for operating quantum workloads alongside classical computing systems.",
+  tagline: "Building software infrastructure for hybrid classical–quantum computing.",
+  focus: "Quantum Infrastructure Engineering",
+  primaryCta: "Explore the Platform",
+  primaryCtaHref: "/platform",
   secondaryCta: "GitHub",
   secondaryCtaHref: "https://github.com/mathnetica",
+  researchCta: "Research",
+  researchCtaHref: "/research",
   finalCta: "Get in touch",
 } as const;
 
-/** Primary nav — lab model: product, research, about. Contact via CTA. */
 export const navLinks = [
-  { href: "/quancave", label: "Quancave" },
+  { href: "/platform", label: "Platform" },
   { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
 ] as const;
 
+/** One engineering problem, three layers. */
 export const workAreas = [
   {
     number: "01",
-    title: "Quantum Infrastructure",
+    title: "Hybrid Workloads",
     description:
-      "Software connecting classical applications, cloud/HPC infrastructure and quantum processors.",
+      "Run workflows spanning classical and quantum compute. Mathnetica explores infrastructure for coordinating CPU, GPU and QPU stages without treating quantum execution as an isolated experiment.",
   },
   {
     number: "02",
-    title: "Hybrid Computing",
+    title: "QPU Infrastructure",
     description:
-      "Architecture and experimentation across CPU, GPU and QPU workloads.",
+      "Make quantum processors manageable infrastructure resources. We research resource discovery, provider integration, workload lifecycle, queues, scheduling and execution across heterogeneous backends.",
   },
   {
     number: "03",
-    title: "Quantum Systems Architecture",
+    title: "Quantum Operations",
     description:
-      "Independent assessment of hybrid classical–quantum designs — including when not to use quantum.",
+      "Operate the complete workload, not just the circuit. Tracing, metrics, provenance, reliability and execution visibility across classical and quantum stages.",
   },
 ] as const;
 
-export const credentials = [
-  "Software Engineering",
-  "Distributed Systems",
+export const builtOn = [
   "Kubernetes",
-  "Cloud / HPC",
-  "Hybrid Computing",
-  "Quantum Systems",
+  "Argo",
+  "Kueue",
+  "OpenTelemetry",
+  "Prometheus",
+  "Grafana",
 ] as const;
 
-export const aboutValues = [
-  "Cloud and platform engineering depth",
-  "Hardware-independent infrastructure thinking",
-  "Open source before marketing claims",
-  "Research that stays in one domain",
-  "Honest assessment — including don't use quantum",
-  "Small scope, long commitment",
-  "Netherlands quantum ecosystem",
-  "Systems that can be operated, not only drawn",
-] as const;
-
-export const quancave = {
-  name: "Quancave",
-  status: "Experimental",
-  tagline: "An experimental orchestration layer for hybrid quantum-classical workloads.",
+export const platform = {
+  name: "Mathnetica Platform",
+  status: "Experimental" as const,
+  tagline: "Open-source infrastructure for hybrid classical–quantum computing.",
   summary:
-    "Quancave is Mathnetica's flagship open-source project: submit quantum jobs from classical infrastructure, track status, and collect results — starting with simulators, then real QPU backends.",
-  github: "https://github.com/mathnetica/quancave",
-  pipeline: ["submit", "execute", "status", "result"] as const,
-  phases: [
+    "Mathnetica builds the quantum-aware control layer for modern computing infrastructure. We extend proven cloud-native and HPC technologies with the resource models, provider integrations and operational capabilities required to run quantum workloads.",
+  principle:
+    "Existing stack is the foundation. Our code is the layer that makes infrastructure understand QPUs.",
+  github: "https://github.com/mathnetica",
+  claimLevel: "experimental" as const,
+  layers: [
     {
-      title: "v0.1 — Simulator",
-      description: "QuantumJob API on a local or cluster simulator. End-to-end submit → result.",
+      name: "QPU Resources",
+      description:
+        "Discovery and allocation — how infrastructure should represent and manage quantum processors. Research and experiments.",
     },
     {
-      title: "v0.2 — First QPU",
-      description: "One real provider backend. Queue, status and result paths against hardware.",
+      name: "Workloads",
+      description:
+        "Routing and lifecycle across CPU, GPU and QPU stages — without treating quantum as an isolated experiment.",
     },
     {
-      title: "Later — Portability",
-      description: "Second backend, metrics, observability, fallback — only after real problems appear.",
+      name: "Operations",
+      description:
+        "Telemetry and provenance across the quantum–classical boundary — a platform capability, not a separate product.",
     },
   ],
+  roadmapNote:
+    "Provider integrations, predictive scheduling and multi-cluster/HPC orchestration are on the roadmap. Do not assume backends are supported unless listed as implemented.",
 } as const;
 
-/** Optional engagement — not homepage-primary; assessment when asked. */
-export const assessment = {
-  name: "Quantum Systems Architecture Assessment",
-  duration: "1–2 weeks",
-  description:
-    "Business problem → workload → classical baseline → potential QPU component → hybrid architecture → readiness and limits.",
-  note: "Sometimes the recommendation is: don't use quantum.",
-} as const;
+export const aboutValues = [
+  "Software infrastructure, not quantum hardware",
+  "Proven cloud-native building blocks first",
+  "Quantum-aware layer where gaps exist",
+  "Open source before marketing claims",
+  "Research that feeds the platform",
+  "Honest experimental status",
+  "Amsterdam · European ecosystem",
+  "Years in one domain",
+] as const;

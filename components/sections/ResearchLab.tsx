@@ -14,11 +14,12 @@ export function ResearchLab() {
               Built like a lab. Used like a practice.
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-[#f0ebd8]/72 md:text-lg">
-              Research is part of the work — orchestration, observability,
-              portability and hybrid CPU/GPU/QPU systems.
+              Research feeds the Mathnetica Platform — engineering problems we
+              hit while building infrastructure for hybrid classical–quantum
+              computing.
             </p>
             <p className="mt-8 text-sm tracking-[0.16em] text-[#f0ebd8]/55 uppercase">
-              Algorithms · Systems · Quantum
+              Infrastructure · Software · Systems
             </p>
           </FadeIn>
 

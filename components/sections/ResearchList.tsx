@@ -1,5 +1,8 @@
 import Link from "next/link";
-import type { ResearchArticle } from "@/lib/content/research";
+import {
+  formatResearchStatus,
+  type ResearchArticle,
+} from "@/lib/content/research";
 import { FadeIn } from "@/components/ui/fade-in";
 
 type ResearchListProps = {
@@ -24,10 +27,17 @@ export function ResearchList({ articles, compact = false }: ResearchListProps) {
             <div className="grid gap-3 md:grid-cols-[160px_1fr] md:gap-10">
               <div className="space-y-1 text-base text-muted-foreground">
                 <p>{article.category}</p>
-                <p>{formatDate(article.date)}</p>
+                <p>{formatResearchStatus(article.status)}</p>
+                {article.status === "published" ? (
+                  <p>{formatDate(article.date)}</p>
+                ) : null}
               </div>
               <div>
-                <h3 className={compact ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"}>
+                <h3
+                  className={
+                    compact ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"
+                  }
+                >
                   <Link
                     href={`/research/${article.slug}`}
                     className="tracking-tight transition-opacity hover:opacity-70"
@@ -42,7 +52,7 @@ export function ResearchList({ articles, compact = false }: ResearchListProps) {
                   href={`/research/${article.slug}`}
                   className="mt-4 inline-block text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                 >
-                  Read more
+                  {article.status === "planned" ? "Research topic" : "Read more"}
                 </Link>
               </div>
             </div>

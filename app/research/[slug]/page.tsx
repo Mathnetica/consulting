@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
+  formatResearchStatus,
   getResearchBySlug,
   researchArticles,
 } from "@/lib/content/research";
@@ -50,7 +51,10 @@ export default async function ResearchArticlePage({ params }: Props) {
             ← Research
           </Link>
           <p className="mt-10 text-sm text-muted-foreground">
-            {article.category} · {formatDate(article.date)}
+            {article.category} · {formatResearchStatus(article.status)}
+            {article.status === "published"
+              ? ` · ${formatDate(article.date)}`
+              : null}
           </p>
           <h1 className="mt-4 text-statement">{article.title}</h1>
           <p className="mt-8 text-lg leading-relaxed text-muted-foreground">

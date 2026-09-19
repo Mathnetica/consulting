@@ -6,7 +6,7 @@ const siteUrl = "https://mathnetica.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
-    "/quancave",
+    "/platform",
     "/research",
     "/about",
     "/contact",
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             path.startsWith("/cookies") ||
             path.startsWith("/terms")
           ? 0.3
-          : path === "/quancave"
+          : path === "/platform"
             ? 0.9
             : 0.7,
   }));

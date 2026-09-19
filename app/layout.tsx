@@ -22,7 +22,7 @@ const googleSansCode = Google_Sans_Code({
 });
 
 const siteUrl = "https://mathnetica.com";
-const title = "Mathnetica — Quantum Systems Engineering";
+const title = "Mathnetica — Quantum Infrastructure Engineering";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -46,15 +46,18 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   keywords: [
-    "Quantum Systems Engineering",
-    "Hybrid classical-quantum computing",
-    "Quantum infrastructure software",
-    "Quancave",
-    "Kubernetes quantum",
-    "QPU orchestration",
+    "quantum infrastructure",
+    "quantum infrastructure engineering",
+    "quantum computing infrastructure",
+    "quantum software infrastructure",
+    "hybrid quantum computing",
+    "QPU infrastructure",
+    "QPU scheduling",
+    "quantum workloads",
+    "quantum orchestration",
+    "hybrid classical quantum computing",
     "Amsterdam",
     "Netherlands",
-    "Open source quantum",
   ],
   category: "technology",
   alternates: {
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Mathnetica — Quantum Systems Engineering",
+        alt: "Mathnetica — Quantum Infrastructure Engineering",
       },
     ],
   },

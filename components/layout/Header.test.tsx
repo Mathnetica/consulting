@@ -14,7 +14,7 @@ describe("Header", () => {
       screen.getByRole("navigation", { name: /primary/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("link", { name: /explore quancave/i }).length,
+      screen.getAllByRole("link", { name: /explore the platform/i }).length,
     ).toBeGreaterThan(0);
   });
 
@@ -31,7 +31,7 @@ describe("Header", () => {
     expect(
       within(screen.getByRole("navigation", { name: /mobile/i })).getByRole(
         "link",
-        { name: /01\s+quancave/i },
+        { name: /01\s+platform/i },
       ),
     ).toBeVisible();
   });

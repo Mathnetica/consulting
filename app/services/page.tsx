@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-/** Services tab retired — lab model leads with Quancave + research. */
+/** Services tab retired — public product is Mathnetica Platform. */
 export default function ServicesPage() {
-  redirect("/about");
+  redirect("/platform");
 }

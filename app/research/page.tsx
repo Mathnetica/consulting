@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Research notes from Mathnetica on quantum workload orchestration, hybrid architectures, observability and QPU portability.",
+    "Engineering problems Mathnetica encounters while building infrastructure for hybrid classical–quantum computing.",
   alternates: { canonical: "/research" },
 };
 
@@ -46,8 +46,8 @@ export default async function ResearchPage({ searchParams }: ResearchPageProps) 
         <div className="container-content">
           <SectionIntro
             eyebrow="Research"
-            title="Research is part of the work."
-            description="We investigate orchestration, portability, observability and hybrid CPU/GPU/QPU systems."
+            title="Engineering the missing pieces."
+            description="Mathnetica Research documents the engineering problems we encounter while building infrastructure for hybrid classical–quantum computing. Research feeds directly into the platform."
           />
         </div>
       </section>
@@ -69,7 +69,7 @@ export default async function ResearchPage({ searchParams }: ResearchPageProps) 
                 ? "No notes in this category yet."
                 : category
                   ? `${total} note${total === 1 ? "" : "s"} in this category.`
-                  : "Short technical notes from the lab — orchestration, hybrid architectures and quantum infrastructure."}
+                  : "Research topics supporting the Mathnetica Platform — marked as in progress or planned when not yet published."}
             </p>
           </FadeIn>
 

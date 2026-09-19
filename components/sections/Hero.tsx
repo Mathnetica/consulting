@@ -9,20 +9,22 @@ export function Hero() {
           {siteConfig.location}
         </p>
 
-        {/* <p className="mb-6 text-left text-sm font-medium tracking-[0.14em] text-foreground/70 uppercase md:mb-8">
-          {siteConfig.focus}
-        </p> */}
-
         <h1 className="m-0 w-full text-left text-display">
           <span className="block">Quantum</span>
-          <span className="block">Systems Engineering</span>
+          <span className="block">Infrastructure</span>
+          <span className="block">Engineering</span>
         </h1>
 
-        <div className="mt-auto flex w-full flex-col gap-8 pt-20 md:flex-row md:items-end md:justify-between md:gap-12 md:pt-28">
-          <p className="max-w-xl text-left text-base leading-relaxed font-medium text-foreground/70 md:text-lg">
-            We research and build software for hybrid classical–quantum systems.
+        <p className="mt-8 max-w-2xl text-left text-xl font-medium tracking-tight text-foreground md:mt-10 md:text-2xl">
+          {siteConfig.tagline}
+        </p>
+
+        <div className="mt-auto flex w-full flex-col gap-8 pt-16 md:flex-row md:items-end md:justify-between md:gap-12 md:pt-24">
+          <p className="max-w-xl text-left text-base leading-relaxed text-foreground/70 md:text-lg">
+            Mathnetica develops open-source infrastructure for operating quantum
+            workloads alongside CPU, GPU and modern cloud/HPC systems.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
             <Link href={siteConfig.primaryCtaHref} className="btn-pill-primary">
               {siteConfig.primaryCta}
             </Link>
@@ -34,6 +36,12 @@ export function Hero() {
             >
               {siteConfig.secondaryCta}
             </a>
+            <Link
+              href={siteConfig.researchCtaHref}
+              className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+            >
+              {siteConfig.researchCta}
+            </Link>
           </div>
         </div>
       </div>

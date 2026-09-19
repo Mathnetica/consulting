@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Mathnetica — Quantum Systems Engineering";
+export const alt = "Mathnetica — Quantum Infrastructure Engineering";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -41,10 +41,10 @@ export default function OpenGraphImage() {
               maxWidth: 980,
             }}
           >
-            Quantum Systems Engineering
+            Quantum Infrastructure Engineering
           </div>
           <div style={{ fontSize: 28, color: "#5A5A5A", maxWidth: 820 }}>
-            Hybrid classical–quantum infrastructure · Amsterdam
+            Software infrastructure for hybrid classical–quantum computing
           </div>
         </div>
       </div>

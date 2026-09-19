@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="13 September 2026">
+    <LegalPage title="Privacy Policy" updated="19 September 2026">
       <LegalSection title="Who we are">
         <p>
-          <strong>{siteConfig.name}</strong> (“we”, “us”) is a quantum software
-          research and engineering lab based in Amsterdam Zuid. Postal address:{" "}
+          <strong>{siteConfig.name}</strong> (“we”, “us”) is a quantum
+          infrastructure engineering lab based in Amsterdam Zuid. Postal address:{" "}
           {siteConfig.address.street}, {siteConfig.address.postalCode}{" "}
           {siteConfig.address.city}, {siteConfig.address.country}. For privacy
           questions, contact{" "}
@@ -34,8 +34,7 @@ export default function PrivacyPolicyPage() {
         <ul>
           <li>
             <strong>Contact details</strong> — name, work email, company name
-            and the contents of your message when you use the contact form or
-            email us.
+            and the contents of your message when you email us.
           </li>
           <li>
             <strong>Technical data</strong> — IP address, browser type, device
@@ -50,7 +49,7 @@ export default function PrivacyPolicyPage() {
         <p>
           We do not intentionally collect special-category data through this
           website. Please do not include sensitive personal information in
-          enquiry forms.
+          emails.
         </p>
       </LegalSection>
 
