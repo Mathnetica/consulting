@@ -14,7 +14,9 @@ export function JsonLd() {
       "@type": "Place",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Amsterdam",
+        streetAddress: siteConfig.address.street,
+        postalCode: siteConfig.address.postalCode,
+        addressLocality: siteConfig.address.city,
         addressCountry: "NL",
       },
     },
@@ -29,19 +31,20 @@ export function JsonLd() {
     url: siteUrl,
     image: `${siteUrl}/opengraph-image`,
     description: siteConfig.description,
-    priceRange: "$$$$",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Amsterdam",
+      streetAddress: siteConfig.address.street,
+      postalCode: siteConfig.address.postalCode,
+      addressLocality: siteConfig.address.city,
       addressCountry: "NL",
     },
     email: siteConfig.email,
     knowsAbout: [
-      "Data & AI Solution Architecture",
-      "AI Architecture",
-      "Data & AI Platform Architecture",
-      "Architecture Review",
-      "Principal Architect",
+      "Quantum Systems Engineering",
+      "Hybrid classical-quantum computing",
+      "Quantum infrastructure software",
+      "Kubernetes quantum workloads",
+      "QPU orchestration",
     ],
   };
 

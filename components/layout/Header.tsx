@@ -64,17 +64,19 @@ export function Header() {
             <div className="relative z-[60] flex items-center gap-2">
               <div className="hidden items-center gap-2 md:flex">
                 <Link
-                  href="/contact"
+                  href={siteConfig.primaryCtaHref}
                   className="inline-flex h-10 items-center rounded-full bg-foreground px-5 text-[15px] text-background transition-opacity hover:opacity-85"
                 >
                   {siteConfig.primaryCta}
                 </Link>
-                <Link
-                  href="/services"
+                <a
+                  href={siteConfig.secondaryCtaHref}
                   className="inline-flex h-10 items-center rounded-full bg-foreground/[0.06] px-5 text-[15px] text-foreground transition-colors hover:bg-foreground/[0.1]"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   {siteConfig.secondaryCta}
-                </Link>
+                </a>
               </div>
 
               <button
@@ -171,7 +173,7 @@ export function Header() {
             style={{ transitionDelay: open ? "450ms" : "0ms" }}
           >
             <Link
-              href="/contact"
+              href={siteConfig.primaryCtaHref}
               className="inline-flex h-12 items-center justify-center rounded-full bg-foreground text-base font-medium text-background"
               onClick={() => setOpen(false)}
               tabIndex={open ? 0 : -1}

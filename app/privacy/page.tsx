@@ -14,8 +14,8 @@ export default function PrivacyPolicyPage() {
     <LegalPage title="Privacy Policy" updated="13 September 2026">
       <LegalSection title="Who we are">
         <p>
-          <strong>{siteConfig.name}</strong> (“we”, “us”) is an engineering
-          consultancy based in Amsterdam Zuid. Postal address:{" "}
+          <strong>{siteConfig.name}</strong> (“we”, “us”) is a quantum software
+          research and engineering lab based in Amsterdam Zuid. Postal address:{" "}
           {siteConfig.address.street}, {siteConfig.address.postalCode}{" "}
           {siteConfig.address.city}, {siteConfig.address.country}. For privacy
           questions, contact{" "}

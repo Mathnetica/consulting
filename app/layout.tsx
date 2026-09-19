@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Google_Sans_Code, Google_Sans_Flex } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/cookies/CookieConsent";
@@ -7,18 +7,22 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/content/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const googleSansFlex = Google_Sans_Flex({
+  variable: "--font-google-sans-flex",
   subsets: ["latin"],
+  adjustFontFallback: false,
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const googleSansCode = Google_Sans_Code({
+  variable: "--font-google-sans-code",
   subsets: ["latin"],
+  adjustFontFallback: false,
+  fallback: ["ui-monospace", "monospace"],
 });
 
 const siteUrl = "https://mathnetica.com";
-const title = "Mathnetica — Data & AI Platform Engineering";
+const title = "Mathnetica — Quantum Systems Engineering";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -42,16 +46,15 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   keywords: [
-    "Data & AI Platform Engineering",
-    "AI Architecture",
-    "Data & AI Platforms",
-    "Architecture Review",
-    "Production AI",
-    "RAG",
-    "Netherlands consultancy",
+    "Quantum Systems Engineering",
+    "Hybrid classical-quantum computing",
+    "Quantum infrastructure software",
+    "QBridge",
+    "Kubernetes quantum",
+    "QPU orchestration",
     "Amsterdam",
-    "Kubernetes",
-    "TOGAF",
+    "Netherlands",
+    "Open source quantum",
   ],
   category: "technology",
   alternates: {
@@ -69,7 +72,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Mathnetica — Data & AI Architecture",
+        alt: "Mathnetica — Quantum Systems Engineering",
       },
     ],
   },
@@ -106,7 +109,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${googleSansFlex.variable} ${googleSansCode.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <JsonLd />

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Mathnetica — Data & AI Architecture";
+export const alt = "Mathnetica — Quantum Systems Engineering";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -34,17 +34,17 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div
             style={{
-              fontSize: 64,
+              fontSize: 58,
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: "-0.04em",
               maxWidth: 980,
             }}
           >
-            Data & AI Architecture. Grounded in engineering.
+            Quantum Systems Engineering
           </div>
           <div style={{ fontSize: 28, color: "#5A5A5A", maxWidth: 820 }}>
-            Solution Architecture · Data & AI Platforms · Amsterdam
+            Hybrid classical–quantum infrastructure · Amsterdam
           </div>
         </div>
       </div>

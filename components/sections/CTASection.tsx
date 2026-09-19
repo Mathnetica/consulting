@@ -6,12 +6,14 @@ type CTASectionProps = {
   title?: string;
   description?: string;
   ctaLabel?: string;
+  ctaHref?: string;
 };
 
 export function CTASection({
-  title = "Bring us the difficult problem.",
-  description = "Data platforms. Production AI. Retrieval. Infrastructure. Complex technical decisions. Let's figure out what should be built — and why.",
+  title = "Building in the open.",
+  description = "Follow QBridge and the research notes — or get in touch about hybrid classical–quantum systems.",
   ctaLabel = siteConfig.finalCta,
+  ctaHref = "/contact",
 }: CTASectionProps) {
   return (
     <FadeIn>
@@ -20,7 +22,7 @@ export function CTASection({
         {description}
       </p>
       <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <Link href="/contact" className="btn-pill-primary">
+        <Link href={ctaHref} className="btn-pill-primary">
           {ctaLabel}
         </Link>
         <a

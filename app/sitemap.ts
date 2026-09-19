@@ -6,7 +6,7 @@ const siteUrl = "https://mathnetica.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
-    "/services",
+    "/qbridge",
     "/research",
     "/about",
     "/contact",
@@ -15,9 +15,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms",
   ].map((path) => ({
     url: `${siteUrl}${path}`,
-    lastModified: new Date("2026-09-13"),
+    lastModified: new Date("2026-09-19"),
     changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : path.startsWith("/privacy") || path.startsWith("/cookies") || path.startsWith("/terms") ? 0.3 : 0.7,
+    priority:
+      path === ""
+        ? 1
+        : path.startsWith("/privacy") ||
+            path.startsWith("/cookies") ||
+            path.startsWith("/terms")
+          ? 0.3
+          : path === "/qbridge"
+            ? 0.9
+            : 0.7,
   }));
 
   const researchRoutes = researchArticles.map((article) => ({

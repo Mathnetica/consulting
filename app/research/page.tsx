@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Research notes from Mathnetica on hybrid search, retrieval, sovereign AI, distributed systems and AI platform architecture.",
+    "Research notes from Mathnetica on quantum workload orchestration, hybrid architectures, observability and QPU portability.",
   alternates: { canonical: "/research" },
 };
 
@@ -47,7 +47,7 @@ export default async function ResearchPage({ searchParams }: ResearchPageProps) 
           <SectionIntro
             eyebrow="Research"
             title="Research is part of the work."
-            description="We investigate the technologies and patterns shaping the next generation of Data & AI systems."
+            description="We investigate orchestration, portability, observability and hybrid CPU/GPU/QPU systems."
           />
         </div>
       </section>
@@ -69,7 +69,7 @@ export default async function ResearchPage({ searchParams }: ResearchPageProps) 
                 ? "No notes in this category yet."
                 : category
                   ? `${total} note${total === 1 ? "" : "s"} in this category.`
-                  : "Short technical notes from the practice — retrieval, platforms and production AI systems."}
+                  : "Short technical notes from the lab — orchestration, hybrid architectures and quantum infrastructure."}
             </p>
           </FadeIn>
 

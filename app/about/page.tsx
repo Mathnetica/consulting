@@ -3,12 +3,13 @@ import { SectionIntro } from "@/components/sections/SectionIntro";
 import { LargeStatement } from "@/components/sections/LargeStatement";
 import { CTASection } from "@/components/sections/CTASection";
 import { FadeIn } from "@/components/ui/fade-in";
-import { aboutValues } from "@/lib/content/site";
+import { Credentials } from "@/components/sections/Credentials";
+import { aboutValues, assessment, siteConfig } from "@/lib/content/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Mathnetica is a Data & AI consultancy for complex production environments — experts who work at architecture level and can drop into engineering.",
+    "Mathnetica is an independent quantum software research and engineering lab based in the Netherlands.",
   alternates: { canonical: "/about" },
 };
 
@@ -17,16 +18,18 @@ export default function AboutPage() {
     <>
       <section className="container-site pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="container-content">
-          <LargeStatement statement="We kept seeing the same problem.">
+          <LargeStatement statement="An independent quantum software lab.">
             <p>
-              Years spent working across private companies and public
-              organizations showed us a recurring pattern.
+              {siteConfig.name} is based in the Netherlands. We research and
+              build software infrastructure for hybrid classical–quantum
+              computing — the layer between cloud/HPC/Kubernetes and QPU
+              backends.
             </p>
             <p>
-              The people making technical decisions were becoming increasingly
-              disconnected from the people building the systems.
+              We do not build quantum computers. We do not chase every
+              application domain. We stay in one specialization:{" "}
+              {siteConfig.focus}.
             </p>
-            <p>Mathnetica was created to close that gap.</p>
           </LargeStatement>
         </div>
       </section>
@@ -52,18 +55,25 @@ export default function AboutPage() {
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
           <SectionIntro
-            title="Architects who still engineer."
-            description="Our background is software engineering. That experience shapes every decision we make."
+            title="Background."
+            description="Cloud and platform engineering meeting quantum systems — not physics theatre."
           />
-          <FadeIn className="mt-10 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+          <div className="mt-10 md:mt-14">
+            <Credentials />
+          </div>
+        </div>
+      </section>
+
+      <section className="container-site section-space border-t border-border">
+        <div className="container-content max-w-3xl">
+          <SectionIntro
+            eyebrow="When asked"
+            title={assessment.name}
+            description={assessment.description}
+          />
+          <FadeIn className="mt-6 text-base text-muted-foreground md:text-lg">
             <p>
-              We have built complex systems, platforms and infrastructure before
-              designing them for others — including cloud, Kubernetes, data and
-              AI systems, with TOGAF where the discipline helps.
-            </p>
-            <p>
-              Research is part of the work. We leave clear decisions your teams
-              can own.
+              {assessment.duration}. {assessment.note}
             </p>
           </FadeIn>
         </div>

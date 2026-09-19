@@ -1,11 +1,10 @@
-import Link from "next/link";
-import { expertiseAreas } from "@/lib/content/site";
+import { workAreas } from "@/lib/content/site";
 import { FadeIn } from "@/components/ui/fade-in";
 
 export function Expertise() {
   return (
     <div className="mt-14 space-y-0 border-y border-border md:mt-16">
-      {expertiseAreas.map((area, index) => (
+      {workAreas.map((area, index) => (
         <FadeIn
           key={area.number}
           delayMs={index * 60}
@@ -17,12 +16,7 @@ export function Expertise() {
             </p>
             <div>
               <h3 className="text-2xl tracking-tight md:text-3xl">
-                <Link
-                  href={area.href}
-                  className="transition-opacity hover:opacity-70"
-                >
-                  {area.title}
-                </Link>
+                {area.title}
               </h3>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 {area.description}

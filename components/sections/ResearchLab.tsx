@@ -14,11 +14,11 @@ export function ResearchLab() {
               Built like a lab. Used like a practice.
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-[#f0ebd8]/72 md:text-lg">
-              Research is part of the work — hybrid search, retrieval, sovereign
-              AI and the platforms behind production Data &amp; AI systems.
+              Research is part of the work — orchestration, observability,
+              portability and hybrid CPU/GPU/QPU systems.
             </p>
             <p className="mt-8 text-sm tracking-[0.16em] text-[#f0ebd8]/55 uppercase">
-              Algorithms · Data · Intelligence
+              Algorithms · Systems · Quantum
             </p>
           </FadeIn>
 

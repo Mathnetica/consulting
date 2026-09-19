@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { FadeIn } from "@/components/ui/fade-in";
-import { siteConfig } from "@/lib/content/site";
+import { assessment, siteConfig } from "@/lib/content/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Bring Mathnetica a difficult Data & AI problem — platforms, production AI, retrieval or complex technical decisions.",
+    "Contact Mathnetica about QBridge, research, or a Quantum Systems Architecture Assessment.",
   alternates: { canonical: "/contact" },
 };
 
@@ -18,11 +18,11 @@ export default function ContactPage() {
           <p className="mb-4 text-sm tracking-[0.14em] text-muted-foreground uppercase">
             Contact
           </p>
-          <h1 className="text-statement">Discuss your project.</h1>
+          <h1 className="text-statement">Get in touch.</h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-            Tell us what you are building. We work with CTOs and platform leaders
-            on Data &amp; AI platforms, production AI and complex technical
-            decisions.
+            QBridge, research collaboration, or a{" "}
+            {assessment.name.toLowerCase()}. We work with teams exploring hybrid
+            classical–quantum systems.
           </p>
           <div className="mt-10 space-y-2 text-base">
             <p>

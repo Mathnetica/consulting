@@ -55,7 +55,7 @@ describe("submitContact", () => {
 
   it("sends email through Resend when configured", async () => {
     process.env.RESEND_API_KEY = "re_test";
-    process.env.CONTACT_TO_EMAIL = "hello@mathnetica.com";
+    process.env.CONTACT_TO_EMAIL = "research@mathnetica.com";
     sendMock.mockResolvedValue({ data: { id: "msg_1" }, error: null });
 
     const result = await submitContact(
@@ -66,7 +66,7 @@ describe("submitContact", () => {
     expect(result).toEqual({ ok: true });
     expect(sendMock).toHaveBeenCalledOnce();
     expect(sendMock.mock.calls[0]?.[0]).toMatchObject({
-      to: ["hello@mathnetica.com"],
+      to: ["research@mathnetica.com"],
       replyTo: "ada@example.com",
       subject: "Project enquiry from Ada Lovelace (Analytical Engines)",
     });

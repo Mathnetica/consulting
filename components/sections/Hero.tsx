@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { heroFocus, siteConfig } from "@/lib/content/site";
+import { siteConfig } from "@/lib/content/site";
 
 export function Hero() {
   return (
@@ -9,27 +9,31 @@ export function Hero() {
           {siteConfig.location}
         </p>
 
-        <h1 className="m-0 w-full text-left text-display">
-          <span className="block">Engineering the</span>
-          <span className="block">platforms behind</span>
-          <span className="block">Data &amp; AI.</span>
-        </h1>
+        {/* <p className="mb-6 text-left text-sm font-medium tracking-[0.14em] text-foreground/70 uppercase md:mb-8">
+          {siteConfig.focus}
+        </p> */}
 
-        <p className="mt-8 max-w-2xl text-left text-base font-medium text-foreground/70 md:mt-10 md:text-lg">
-          {heroFocus.join(" · ")}
-        </p>
+        <h1 className="m-0 w-full text-left text-display">
+          <span className="block">Quantum</span>
+          <span className="block">Systems Engineering</span>
+        </h1>
 
         <div className="mt-auto flex w-full flex-col gap-8 pt-20 md:flex-row md:items-end md:justify-between md:gap-12 md:pt-28">
           <p className="max-w-xl text-left text-base leading-relaxed font-medium text-foreground/70 md:text-lg">
-            Independent technical expertise for complex production environments.
+            We research and build software for hybrid classical–quantum systems.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link href="/contact" className="btn-pill-primary">
+            <Link href={siteConfig.primaryCtaHref} className="btn-pill-primary">
               {siteConfig.primaryCta}
             </Link>
-            <Link href="/research" className="btn-pill-secondary">
-              Research
-            </Link>
+            <a
+              href={siteConfig.secondaryCtaHref}
+              className="btn-pill-secondary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {siteConfig.secondaryCta}
+            </a>
           </div>
         </div>
       </div>

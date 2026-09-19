@@ -24,10 +24,10 @@ export function LegalPage({ title, updated, children }: LegalPageProps) {
         <p className="mt-16 text-base text-muted-foreground">
           Questions? Contact{" "}
           <a
-            href="mailto:hello@mathnetica.com"
+            href="mailto:research@mathnetica.com"
             className="text-foreground underline-offset-4 hover:underline"
           >
-            hello@mathnetica.com
+            research@mathnetica.com
           </a>
           {" · "}
           <Link
