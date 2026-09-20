@@ -8,7 +8,14 @@ import { CTASection } from "@/components/sections/CTASection";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { FadeIn } from "@/components/ui/fade-in";
 import { getSortedResearchArticles } from "@/lib/content/research";
-import { builtOn, platform, siteConfig } from "@/lib/content/site";
+import {
+  audiences,
+  builtOn,
+  collaborate,
+  infrastructureGap,
+  platform,
+  siteConfig,
+} from "@/lib/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -25,6 +32,20 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+
+      <section className="container-site section-space border-t border-border">
+        <div className="container-content">
+          <SectionIntro
+            eyebrow={infrastructureGap.eyebrow}
+            title={infrastructureGap.title}
+          />
+          <FadeIn className="mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+            {infrastructureGap.body.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
+          </FadeIn>
+        </div>
+      </section>
 
       <section
         id="build"
@@ -68,6 +89,33 @@ export default function HomePage() {
               {platform.principle}
             </p>
           </FadeIn>
+        </div>
+      </section>
+
+      <section className="container-site section-space border-t border-border">
+        <div className="container-content">
+          <SectionIntro
+            eyebrow="Who it's for"
+            title="Teams that need quantum compute inside real infrastructure."
+          />
+          <div className="mt-14 space-y-0 border-y border-border md:mt-16">
+            {audiences.map((audience, index) => (
+              <FadeIn
+                key={audience.title}
+                delayMs={index * 50}
+                className="border-b border-border py-8 last:border-b-0 md:py-10"
+              >
+                <div className="grid gap-3 md:grid-cols-[minmax(0,14rem)_1fr] md:gap-10">
+                  <h3 className="text-xl tracking-tight md:text-2xl">
+                    {audience.title}
+                  </h3>
+                  <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                    {audience.description}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -121,11 +169,21 @@ export default function HomePage() {
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
           <CTASection
-            title="Building infrastructure for the next class of compute."
-            description="Quantum processors will not replace classical infrastructure. They introduce another specialized compute resource. Mathnetica is building the software infrastructure required to operate it."
-            ctaLabel={siteConfig.primaryCta}
-            ctaHref="/platform"
+            title={collaborate.title}
+            description={collaborate.description}
+            ctaLabel={siteConfig.finalCta}
+            ctaHref="/contact"
           />
+          <FadeIn className="mt-6">
+            <a
+              href={siteConfig.github}
+              className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Build with us on GitHub →
+            </a>
+          </FadeIn>
         </div>
       </section>
     </>

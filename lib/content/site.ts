@@ -21,7 +21,46 @@ export const siteConfig = {
   secondaryCtaHref: "https://github.com/mathnetica",
   researchCta: "Research",
   researchCtaHref: "/research",
-  finalCta: "Get in touch",
+  finalCta: "Discuss a collaboration",
+} as const;
+
+/** Pain → solution framing for the homepage (not a product claim). */
+export const infrastructureGap = {
+  eyebrow: "The infrastructure gap",
+  title: "Quantum workloads do not run in isolation.",
+  body: [
+    "Data preparation happens on CPUs. Optimization may happen on GPUs. Quantum execution happens on remote, queued QPUs. Results return to classical infrastructure.",
+    "Today these stages are often operated through separate systems, APIs and observability layers. Mathnetica is building the infrastructure layer that operates them as one workload.",
+  ],
+} as const;
+
+export const audiences = [
+  {
+    title: "Quantum computing providers",
+    description:
+      "Integrate QPUs with modern cloud and HPC infrastructure.",
+  },
+  {
+    title: "HPC & supercomputing centres",
+    description:
+      "Operate CPU, GPU and QPU resources as part of hybrid workloads.",
+  },
+  {
+    title: "Research institutions",
+    description:
+      "Run reproducible hybrid quantum–classical experiments.",
+  },
+  {
+    title: "Platform engineering teams",
+    description:
+      "Integrate quantum resources without creating a separate infrastructure stack.",
+  },
+] as const;
+
+export const collaborate = {
+  title: "Building the infrastructure layer requires real workloads.",
+  description:
+    "We are looking for research institutions, quantum computing teams, HPC centres and infrastructure engineers interested in experimenting with hybrid classical–quantum infrastructure.",
 } as const;
 
 export const navLinks = [

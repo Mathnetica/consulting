@@ -7,7 +7,14 @@ import {
   researchArticles,
   researchCategories,
 } from "@/lib/content/research";
-import { navLinks, platform, siteConfig, workAreas } from "@/lib/content/site";
+import {
+  audiences,
+  infrastructureGap,
+  navLinks,
+  platform,
+  siteConfig,
+  workAreas,
+} from "@/lib/content/site";
 import { legalLinks } from "@/lib/content/legal";
 
 describe("research content", () => {
@@ -71,6 +78,12 @@ describe("site content", () => {
       "Workloads",
       "Operations",
     ]);
+  });
+
+  it("frames the gap and audiences without product vaporware", () => {
+    expect(infrastructureGap.title).toContain("isolation");
+    expect(audiences).toHaveLength(4);
+    expect(siteConfig.finalCta).toBe("Discuss a collaboration");
   });
 
   it("exposes legal routes", () => {
