@@ -14,10 +14,8 @@ export function ServiceSection({
   return (
     <div className="space-y-0">
       {services.map((service) => (
-        <FadeIn
-          key={service.slug}
-          className="border-t border-border py-12 md:py-16"
-        >
+        <div key={service.slug} id={service.slug} className="scroll-mt-24">
+          <FadeIn className="border-t border-border py-12 md:py-16">
           <div className="grid gap-8 lg:grid-cols-[180px_1fr] lg:gap-12">
             <p className="text-base tracking-[0.12em] text-muted-foreground">
               {service.number}
@@ -35,6 +33,16 @@ export function ServiceSection({
                   </Link>
                 )}
               </h3>
+              {service.entryPoint ? (
+                <p className="mt-2 text-sm tracking-[0.12em] text-muted-foreground uppercase">
+                  Recommended entry point
+                </p>
+              ) : null}
+              {service.flagship ? (
+                <p className="mt-2 text-sm tracking-[0.12em] text-muted-foreground uppercase">
+                  Flagship engagement
+                </p>
+              ) : null}
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 {service.shortDescription}
               </p>
@@ -71,7 +79,8 @@ export function ServiceSection({
               ) : null}
             </div>
           </div>
-        </FadeIn>
+          </FadeIn>
+        </div>
       ))}
     </div>
   );

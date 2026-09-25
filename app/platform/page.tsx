@@ -7,7 +7,12 @@ import {
 import { CTASection } from "@/components/sections/CTASection";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { FadeIn } from "@/components/ui/fade-in";
-import { builtOn, platform, siteConfig } from "@/lib/content/site";
+import {
+  platform,
+  qbridge,
+  researchDirections,
+  siteConfig,
+} from "@/lib/content/site";
 
 export const metadata: Metadata = {
   title: "Platform",
@@ -52,7 +57,7 @@ export default function PlatformPage() {
         <div className="container-content">
           <SectionIntro
             title="Control plane."
-            description="Mathnetica is the quantum-aware layer. Kubernetes, Argo, Kueue and HPC are the foundation — not the product."
+            description="Mathnetica sits above infrastructure technologies. Kubernetes, HPC and provider SDKs are foundations — not the product."
           />
           <div className="mt-14 space-y-0 border-y border-border">
             {platform.layers.map((layer, index) => (
@@ -75,24 +80,40 @@ export default function PlatformPage() {
 
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
+          <SectionIntro
+            title="Research directions."
+            description="Areas we are exploring and building — not a claim of finished production features."
+          />
+          <div className="mt-14 space-y-0 border-y border-border">
+            {researchDirections.map((item, index) => (
+              <FadeIn
+                key={item.title}
+                delayMs={index * 40}
+                className="border-b border-border py-8 last:border-b-0 md:py-10"
+              >
+                <h3 className="text-xl tracking-tight md:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                  {item.description}
+                </p>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container-site section-space border-t border-border">
+        <div className="container-content">
           <SectionIntro title="Architecture." />
           <div className="mt-12 md:mt-14">
             <ArchitectureDiagram variant="detail" />
           </div>
-          <FadeIn className="mt-12">
-            <p className="text-sm tracking-[0.14em] text-muted-foreground uppercase">
-              Built on
-            </p>
-            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-              {builtOn.map((item) => (
-                <li key={item} className="text-base text-foreground/80">
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              {platform.principle} Kubernetes is our initial infrastructure
-              environment — not our identity.
+          <FadeIn className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p>
+              {platform.principle} Kubernetes is an initial laboratory — not our
+              identity. The same control ideas should remain meaningful on HPC
+              and other environments.
             </p>
           </FadeIn>
         </div>
@@ -109,10 +130,9 @@ export default function PlatformPage() {
           </div>
           <FadeIn className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
-              Quantum applications increasingly combine classical preprocessing,
-              optimization, quantum execution and classical post-processing.
-              Mathnetica treats the complete workflow as an infrastructure
-              problem.
+              Useful quantum applications combine classical preparation,
+              simulation, quantum execution and classical analysis. Mathnetica
+              treats the complete workflow as an infrastructure problem.
             </p>
           </FadeIn>
         </div>
@@ -120,11 +140,21 @@ export default function PlatformPage() {
 
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
+          <SectionIntro
+            eyebrow={qbridge.status}
+            title={qbridge.name}
+            description={qbridge.summary}
+          />
+        </div>
+      </section>
+
+      <section className="container-site section-space border-t border-border">
+        <div className="container-content">
           <CTASection
-            title="Follow the platform."
-            description={`${siteConfig.name} is building ${platform.name} in the open. Research notes document the engineering problems we hit along the way.`}
-            ctaLabel="Read the research"
-            ctaHref="/research"
+            title="Need architecture help today?"
+            description={`While ${platform.name} remains experimental, organizations can hire Mathnetica for Architecture Review and specialized hybrid quantum infrastructure engineering.`}
+            ctaLabel={siteConfig.commercialCta}
+            ctaHref={siteConfig.commercialCtaHref}
           />
         </div>
       </section>

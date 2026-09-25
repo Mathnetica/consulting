@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Engineering problems Mathnetica encounters while building infrastructure for hybrid classical–quantum computing.",
+    "Engineering problems Mathnetica encounters while building infrastructure for hybrid quantum-classical computing.",
   alternates: { canonical: "/research" },
 };
 
@@ -47,7 +47,7 @@ export default async function ResearchPage({ searchParams }: ResearchPageProps) 
           <SectionIntro
             eyebrow="Research"
             title="Engineering the missing pieces."
-            description="Mathnetica Research documents the engineering problems we encounter while building infrastructure for hybrid classical–quantum computing. Research feeds directly into the platform."
+            description="Mathnetica Research documents the engineering problems we encounter while building infrastructure for hybrid quantum-classical computing — including placement, automation, sovereignty and observability. Research feeds directly into the platform."
           />
         </div>
       </section>

@@ -15,7 +15,7 @@ export function ResearchLab() {
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-[#f0ebd8]/72 md:text-lg">
               Research feeds the Mathnetica Platform — engineering problems we
-              hit while building infrastructure for hybrid classical–quantum
+              hit while building infrastructure for hybrid quantum-classical
               computing.
             </p>
             <p className="mt-8 text-sm tracking-[0.16em] text-[#f0ebd8]/55 uppercase">

@@ -21,8 +21,7 @@ export function Hero() {
 
         <div className="mt-auto flex w-full flex-col gap-8 pt-16 md:flex-row md:items-end md:justify-between md:gap-12 md:pt-24">
           <p className="max-w-xl text-left text-base leading-relaxed text-foreground/70 md:text-lg">
-            Mathnetica develops open-source infrastructure for operating quantum
-            workloads alongside CPU, GPU and modern cloud/HPC systems.
+            {siteConfig.heroSupport}
           </p>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
             <Link href={siteConfig.primaryCtaHref} className="btn-pill-primary">

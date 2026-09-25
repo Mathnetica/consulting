@@ -11,129 +11,50 @@ export type Service = {
   technologies: string[];
   outcomes: string[];
   priceNote?: string;
+  entryPoint?: boolean;
+  flagship?: boolean;
 };
 
+/**
+ * Specialized quantum infrastructure engineering engagements.
+ * Not generic DevOps / cloud / AI consulting.
+ *
+ * Entry: Architecture Review
+ * Flagship commercial direction: Hybrid Quantum Infrastructure Workflows
+ */
 export const services: Service[] = [
   {
-    slug: "data-ai-solution-architecture",
-    number: "01",
-    title: "Data & AI Solution Architecture",
-    shortDescription:
-      "Technical direction for complex Data & AI systems — decisions your teams can implement.",
-    capabilities: [
-      "enterprise AI architecture",
-      "data architecture",
-      "AI platform architecture",
-      "integration architecture",
-      "RAG / search architecture",
-      "cloud-native architecture",
-      "security & governance",
-      "technology selection",
-      "ADRs & technical strategy",
-    ],
-    problem:
-      "Organizations need clear technical direction for enterprise RAG, AI platforms and data systems under real constraints — cloud, security, integration and existing teams.",
-    whatWeDo:
-      "We define requirements and constraints, target design, technology decisions, ADRs, security and integration patterns, deployment model, and a roadmap for your implementation teams.",
-    typicalEngagement:
-      "Engagements of several weeks, Architecture Reviews, or fractional Principal / Solution Architect retainers.",
-    deliverables: [
-      "Assessment and constraints model",
-      "Target design and system diagrams",
-      "Technology decisions and ADRs",
-      "Security, integration and deployment guidance",
-      "Implementation roadmap for client teams",
-    ],
-    technologies: [
-      "Azure / AWS / GCP",
-      "Databricks and lakehouse stacks",
-      "Kubernetes",
-      "RAG and search infrastructure",
-      "API and event integration",
-      "Identity, security and governance patterns",
-    ],
-    outcomes: [
-      "Clear technical direction before large spend",
-      "Decisions that hold up in production",
-      "Client teams equipped to build and own the system",
-      "Senior expertise without standing up a delivery squad",
-    ],
-  },
-  {
-    slug: "data-ai-platform-engineering",
-    number: "02",
-    title: "Data & AI Platform Engineering",
-    shortDescription:
-      "Platform foundations and critical-path engineering where implementation knowledge is required to validate design.",
-    capabilities: [
-      "platform foundations",
-      "reference implementations",
-      "critical-path PoCs",
-      "lakehouse architecture",
-      "RAG infrastructure",
-      "model serving patterns",
-      "observability",
-      "Kubernetes",
-      "sovereign infrastructure",
-    ],
-    problem:
-      "Design fails when it has never touched the hard parts of the platform — retrieval quality, serving, data contracts or operational reality.",
-    whatWeDo:
-      "We engineer reference implementations, prototypes and critical paths to validate the hardest technical bets.",
-    typicalEngagement:
-      "Time-boxed validation of the hardest technical bets, alongside Solution Architecture work.",
-    deliverables: [
-      "Critical-path prototype or PoC",
-      "Reference implementation patterns",
-      "Technical risk findings",
-      "Handover for client engineering ownership",
-    ],
-    technologies: [
-      "Kubernetes",
-      "data platforms",
-      "vector search",
-      "model serving",
-      "observability stacks",
-      "major cloud providers",
-    ],
-    outcomes: [
-      "Design proven where it matters most",
-      "Reduced implementation risk",
-      "Patterns client teams can extend",
-      "Clear ownership after the engagement",
-    ],
-  },
-  {
     slug: "architecture-review",
-    number: "03",
+    number: "01",
     title: "Architecture Review",
+    entryPoint: true,
     shortDescription:
-      "A focused senior technical review of an existing Data, AI or platform setup.",
+      "The easiest starting point — a focused senior review of your quantum, hybrid or classical infrastructure plans and constraints.",
     capabilities: [
-      "discovery session",
+      "discovery",
       "architecture assessment",
-      "system diagram",
-      "technical risks",
+      "risks and trade-offs",
       "prioritized recommendations",
       "review session",
     ],
     problem:
-      "Teams need an independent, senior technical view before committing to a platform direction, major migration or AI investment.",
+      "Teams need an independent technical view before committing to quantum access, HPC integration, hybrid workflows or a platform direction.",
     whatWeDo:
-      "We run a time-boxed Architecture Review: understand the system, assess risks and trade-offs, and deliver clear, prioritized recommendations.",
+      "We run a time-boxed Architecture Review: understand the system and goals, assess architecture and risks, and deliver clear, prioritized recommendations.",
     typicalEngagement: "1–2 weeks with discovery, assessment and a review session.",
     deliverables: [
       "Discovery session",
       "Architecture assessment",
-      "System diagram",
+      "System context and constraints",
       "Technical risks",
       "Prioritized recommendations",
       "Review session",
     ],
     technologies: [
-      "Architecture modeling",
-      "Risk assessment",
-      "Platform and AI stack review",
+      "Hybrid quantum-classical architecture",
+      "HPC and cloud infrastructure",
+      "Kubernetes / workflow tooling where relevant",
+      "QPU provider access patterns",
     ],
     outcomes: [
       "Independent technical clarity",
@@ -144,45 +65,163 @@ export const services: Service[] = [
     priceNote: "Architecture Review — €2,500 fixed",
   },
   {
-    slug: "fractional-principal-architect",
-    number: "04",
-    title: "Fractional Principal Architect",
+    slug: "hybrid-infrastructure-workflows",
+    number: "02",
+    title: "Hybrid Quantum Infrastructure Workflows",
+    flagship: true,
     shortDescription:
-      "Ongoing senior Data & AI technical direction across initiatives — typically one to two days per week.",
+      "Controlled infrastructure workflows for hybrid quantum-classical computing — connecting policy, human approval, provisioning and execution across CPU, GPU, HPC, simulators and QPUs.",
     capabilities: [
-      "technical strategy",
-      "architecture governance",
-      "design reviews",
-      "technology selection",
-      "roadmap stewardship",
-      "guidance for delivery teams",
+      "policy and sovereignty checks",
+      "human approval gates",
+      "workload placement",
+      "provisioning when needed",
+      "execution across compute classes",
+      "observability and audit",
     ],
     problem:
-      "Organizations need continuous senior technical judgment across initiatives, but a full-time principal hire is not always the right model.",
+      "Organizations need more than access to a QPU or a Kubernetes cluster. They need controlled processes: where a workload may run, who approves costly or sensitive steps, how infrastructure is provisioned, and how execution is observed and audited.",
     whatWeDo:
-      "We provide fractional Principal / Solution Architecture: typically one to two days per week, focused on decisions, reviews and direction.",
-    typicalEngagement: "Monthly retainer, usually 1–2 days per week.",
+      "We design and implement controlled infrastructure workflows: request → plan → policy check → approval (when required) → provision → place → execute → observe → results / cost / audit. Deterministic tooling runs the operations; policy sets boundaries; humans approve high-risk steps. QPU is a first-class target alongside CPU, GPU, HPC and simulators — not a later add-on.",
+    typicalEngagement:
+      "Architecture and implementation engagement, usually after an Architecture Review. Scope can start with one hybrid path (e.g. CPU → simulator → one QPU backend) and expand.",
     deliverables: [
-      "Standing technical direction cadence",
-      "Design and ADR reviews",
-      "Prioritized backlog of decisions",
-      "Guidance for internal implementation teams",
+      "Workflow and decision model",
+      "Policy and approval design",
+      "Placement and execution path",
+      "Reference implementation or PoC",
+      "Operational and audit notes",
+      "Handover to client teams",
     ],
     technologies: [
-      "Enterprise architecture practice",
-      "Data & AI platforms",
-      "Cloud and Kubernetes landscapes",
+      "Existing Kubernetes / HPC / cloud stacks",
+      "Workflow and automation tooling where useful",
+      "Simulators and QPU provider APIs",
+      "OpenTelemetry / observability hooks",
     ],
     outcomes: [
-      "Senior technical capacity on retainer",
-      "Consistent direction across teams",
-      "Continuity without a full-time hire",
-      "Expertise that scales across initiatives",
+      "One controlled path across heterogeneous compute",
+      "Policy and approval baked into execution",
+      "Patterns that feed the Mathnetica Platform",
+      "Quantum included from the start — not bolted on later",
     ],
-    priceNote: "Fractional Principal Architect — ongoing monthly engagement",
+  },
+  {
+    slug: "quantum-infrastructure-architecture",
+    number: "03",
+    title: "Quantum Infrastructure Architecture",
+    shortDescription:
+      "Target architecture for operating quantum workloads alongside classical systems — control plane, providers, operations.",
+    capabilities: [
+      "target architecture",
+      "provider integration model",
+      "workload lifecycle",
+      "operations design",
+      "ADRs and roadmap",
+    ],
+    problem:
+      "Organizations need a coherent infrastructure architecture for quantum compute that fits existing cloud, HPC and platform practices.",
+    whatWeDo:
+      "We define constraints, target design, integration patterns, operational model and a practical roadmap your teams can implement.",
+    typicalEngagement: "Multi-week architecture engagement or follow-on from an Architecture Review.",
+    deliverables: [
+      "Constraints and current-state assessment",
+      "Target architecture",
+      "Integration and operations guidance",
+      "Technology decisions and ADRs",
+      "Implementation roadmap",
+    ],
+    technologies: [
+      "QPU providers and simulators",
+      "Cloud / on-prem infrastructure",
+      "Workflow and scheduling systems",
+      "Observability stacks",
+    ],
+    outcomes: [
+      "Clear technical direction",
+      "Decisions that hold in production contexts",
+      "Client teams equipped to own the system",
+    ],
+  },
+  {
+    slug: "qpu-hpc-integration",
+    number: "04",
+    title: "QPU / HPC / Classical Integration",
+    shortDescription:
+      "Engineering work to connect quantum backends with existing HPC, cloud or Kubernetes environments.",
+    capabilities: [
+      "provider integration",
+      "HPC bridging",
+      "credentials and job lifecycle",
+      "telemetry hooks",
+      "reference implementations",
+    ],
+    problem:
+      "Accessing a QPU is not the same as operating it inside real infrastructure — queues, credentials, results and classical stages must fit existing systems.",
+    whatWeDo:
+      "We design and implement critical-path integration between classical infrastructure and quantum execution environments.",
+    typicalEngagement: "Time-boxed integration / PoC engagement.",
+    deliverables: [
+      "Integration design",
+      "Working reference path",
+      "Operational notes",
+      "Handover to client teams",
+    ],
+    technologies: [
+      "HPC / Slurm where relevant",
+      "Kubernetes and workflow tools",
+      "Provider SDKs and APIs",
+      "OpenTelemetry where useful",
+    ],
+    outcomes: [
+      "Working hybrid execution path",
+      "Patterns client teams can extend",
+      "Lessons that inform Mathnetica Platform research",
+    ],
+  },
+  {
+    slug: "workload-infrastructure-assessment",
+    number: "05",
+    title: "Workload & Infrastructure Assessment",
+    shortDescription:
+      "Assess readiness of workloads and infrastructure for hybrid quantum-classical experimentation.",
+    capabilities: [
+      "workload screening",
+      "infrastructure readiness",
+      "provider options",
+      "cost and constraint review",
+    ],
+    problem:
+      "Teams often do not know which workloads, providers or infrastructure changes are worth pursuing first.",
+    whatWeDo:
+      "We assess candidate workloads and current infrastructure, then recommend a realistic experiment path — without quantum hype.",
+    typicalEngagement: "Short assessment, often paired with Architecture Review.",
+    deliverables: [
+      "Workload and infrastructure findings",
+      "Recommended experiment path",
+      "Risks and constraints",
+      "Next-step options",
+    ],
+    technologies: [
+      "Classical and HPC stacks",
+      "Simulators and QPU access models",
+    ],
+    outcomes: [
+      "Honest readiness picture",
+      "Prioritized experiments",
+      "Clear go / no-go signals",
+    ],
   },
 ];
 
 export function getServiceBySlug(slug: string) {
   return services.find((service) => service.slug === slug);
 }
+
+export const architectureReview = services.find(
+  (service) => service.slug === "architecture-review",
+)!;
+
+export const flagshipEngagement = services.find(
+  (service) => service.slug === "hybrid-infrastructure-workflows",
+)!;

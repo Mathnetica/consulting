@@ -17,27 +17,28 @@ export default function AboutPage() {
     <>
       <section className="container-site pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="container-content">
-          <LargeStatement statement="Software infrastructure for hybrid classical–quantum computing.">
+          <LargeStatement statement="Infrastructure and control software for hybrid quantum-classical computing.">
             <p>
-              Mathnetica is an independent software research and engineering lab
-              based in Amsterdam, Netherlands.
+              Mathnetica is a commercial engineering company based in Amsterdam,
+              Netherlands — not only an open-source or academic project.
             </p>
             <p>
-              We focus on {siteConfig.focus}: the software systems required to
-              operate quantum workloads alongside classical computing
-              infrastructure.
+              We focus on {siteConfig.focus}. Quantum remains central — but
+              useful quantum workloads do not run alone. They depend on CPU,
+              GPU, HPC, simulators and QPUs.
             </p>
             <p>
-              Quantum processors introduce a fundamentally different class of
-              compute. Rather than building quantum hardware, Mathnetica works
-              on the infrastructure around it — workload execution, resource
-              management, orchestration, operations and integration with modern
-              cloud and HPC environments.
+              Organizations hire us for specialized architecture and integration
+              work today. In parallel we research and build the Mathnetica
+              Platform. Open source and research create adoption and credibility;
+              commercial value comes from engineering engagements and, over time,
+              the platform.
             </p>
             <p>
-              We build open-source software and publish the engineering lessons
-              we learn along the way. Research supports the platform — it is
-              not a separate academic brand.
+              Rather than building quantum hardware or primary quantum
+              algorithms, we work on the infrastructure layer connecting these
+              systems: hybrid workflows, placement, automation, policy and
+              observability.
             </p>
           </LargeStatement>
         </div>
@@ -65,7 +66,7 @@ export default function AboutPage() {
         <div className="container-content max-w-3xl">
           <SectionIntro
             title="What we do not build."
-            description="QPU hardware, qubits, cryogenics, control electronics — or primary work on quantum algorithms and domain applications. Our layer sits between applications and quantum providers."
+            description="QPU hardware, qubits, cryogenics, control electronics — or primary work on quantum algorithms and domain applications. We are not a generic cloud, DevOps or AI consultancy. Our layer sits between applications and classical/quantum infrastructure."
           />
         </div>
       </section>
@@ -73,10 +74,10 @@ export default function AboutPage() {
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
           <CTASection
-            title="Explore the platform."
-            description="Open-source infrastructure for operating quantum workloads alongside classical systems."
-            ctaLabel={siteConfig.primaryCta}
-            ctaHref="/platform"
+            title="Start with an Architecture Review."
+            description="Specialized quantum infrastructure engineering — or explore the experimental platform and research."
+            ctaLabel={siteConfig.commercialCta}
+            ctaHref={siteConfig.commercialCtaHref}
           />
         </div>
       </section>

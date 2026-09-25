@@ -17,6 +17,7 @@ export const researchCategories = [
   "Workflows",
   "Operations",
   "Control Plane",
+  "Automation",
 ] as const;
 
 /**
@@ -59,10 +60,10 @@ export const researchArticles: ResearchArticle[] = [
     date: "2026-08-05",
     status: "planned",
     abstract:
-      "How should infrastructure make scheduling decisions when backends differ in availability, topology, queue time, fidelity and execution characteristics?",
+      "How should infrastructure place and schedule stages when backends differ in availability, topology, queue time, fidelity, cost and policy?",
     body: [
-      "Heterogeneous QPUs break naive portability. Scheduling research must separate local intent from remote provider queues and avoid pretending backends are interchangeable.",
-      "We are researching decision inputs and failure modes — not shipping an automatic multi-QPU scheduler today.",
+      "Heterogeneous QPUs break naive portability. Placement research must separate local intent from remote provider queues and avoid pretending backends are interchangeable.",
+      "We are researching decision inputs — including when a simulator is the better target than a QPU — not shipping an automatic multi-QPU scheduler today.",
       "Status: planned.",
     ],
   },
@@ -73,9 +74,9 @@ export const researchArticles: ResearchArticle[] = [
     date: "2026-07-18",
     status: "in-progress",
     abstract:
-      "Exploring workflow orchestration across fundamentally different compute resources — one workload, multiple classes of compute.",
+      "Exploring workflow orchestration across CPU, GPU, HPC, simulators and QPUs — one workload, multiple classes of compute.",
     body: [
-      "Quantum applications increasingly combine classical preprocessing, optimization, quantum execution and classical post-processing.",
+      "Quantum applications increasingly combine classical preprocessing, optimization, simulation, quantum execution and classical post-processing.",
       "Mathnetica treats the complete workflow as an infrastructure problem and intends to integrate mature workflow engines where useful rather than rewriting them.",
       "Status: in progress. Conceptual and experimental work; not a claim of a finished hybrid workflow product.",
     ],
@@ -87,10 +88,10 @@ export const researchArticles: ResearchArticle[] = [
     date: "2026-07-01",
     status: "in-progress",
     abstract:
-      "Following one workload across classical preprocessing, provider queues, quantum execution and classical post-processing.",
+      "Following one hybrid workload across classical stages, provider queues, simulators, QPU execution and classical post-processing.",
     body: [
       "Observability is a platform capability, not Mathnetica's product. We intend to use OpenTelemetry, Prometheus and Grafana where appropriate and add quantum-specific context where generic stacks stop.",
-      "The research question is what a shared execution identity must carry across the quantum–classical boundary.",
+      "The research question is what a shared execution identity must carry across the quantum–classical boundary — including placement and policy decisions.",
       "Status: in progress.",
     ],
   },
@@ -105,6 +106,34 @@ export const researchArticles: ResearchArticle[] = [
     body: [
       "Remote QPUs challenge assumptions about locality, failure and reconciliation loops that cloud-native operators take for granted.",
       "This topic studies control-plane implications for discovery, lifecycle and reliability when the device is not in the cluster.",
+      "Status: planned.",
+    ],
+  },
+  {
+    slug: "workload-placement-across-hybrid-targets",
+    title: "Workload Placement Across Hybrid Targets",
+    category: "Scheduling",
+    date: "2026-05-20",
+    status: "planned",
+    abstract:
+      "When a stage can run on CPU, GPU, HPC, a simulator or a QPU — how should infrastructure decide, and how should it explain why?",
+    body: [
+      "Placement is not only scheduling QPU jobs. Hybrid workloads need decisions that weigh performance, queue time, cost, hardware requirements and organizational policy — including European data residency and cloud sovereignty constraints where they apply.",
+      "Mathnetica is exploring this as a research direction for the control layer. No production placement engine is claimed.",
+      "Status: planned.",
+    ],
+  },
+  {
+    slug: "infrastructure-automation-for-hybrid-workloads",
+    title: "Infrastructure Automation for Hybrid Workloads",
+    category: "Automation",
+    date: "2026-05-01",
+    status: "planned",
+    abstract:
+      "Execution is only part of the problem. When should hybrid workloads also drive provisioning, configuration and teardown of supporting infrastructure?",
+    body: [
+      "Some workloads already have capacity. Others need ephemeral environments. Mathnetica is investigating how infrastructure automation can enter the lifecycle of hybrid quantum-classical workloads without becoming a generic Terraform consultancy.",
+      "Existing tools may be used underneath. They are not the Mathnetica product.",
       "Status: planned.",
     ],
   },

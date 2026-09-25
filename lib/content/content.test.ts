@@ -9,12 +9,14 @@ import {
 } from "@/lib/content/research";
 import {
   audiences,
+  commercialModel,
   infrastructureGap,
   navLinks,
   platform,
   siteConfig,
   workAreas,
 } from "@/lib/content/site";
+import { services } from "@/lib/content/services";
 import { legalLinks } from "@/lib/content/legal";
 
 describe("research content", () => {
@@ -61,15 +63,16 @@ describe("site content", () => {
     expect(navLinks.map((link) => link.href)).toEqual([
       "/platform",
       "/research",
+      "/services",
       "/about",
     ]);
   });
 
   it("defines three build layers and one platform", () => {
     expect(workAreas.map((area) => area.title)).toEqual([
-      "Hybrid Workloads",
-      "QPU Infrastructure",
-      "Quantum Operations",
+      "Hybrid workflows",
+      "Workload placement",
+      "Operations & constraints",
     ]);
     expect(platform.name).toBe("Mathnetica Platform");
     expect(platform.status).toBe("Experimental");
@@ -80,10 +83,24 @@ describe("site content", () => {
     ]);
   });
 
-  it("frames the gap and audiences without product vaporware", () => {
-    expect(infrastructureGap.title).toContain("isolation");
+  it("frames the hybrid thesis without product vaporware", () => {
+    expect(infrastructureGap.title).toMatch(/doesn't run alone/i);
     expect(audiences).toHaveLength(4);
-    expect(siteConfig.finalCta).toBe("Discuss a collaboration");
+    expect(siteConfig.finalCta).toBe("Discuss your architecture");
+    expect(siteConfig.commercialCta).toBe("Request an Architecture Review");
+    expect(siteConfig.tagline).toMatch(/hybrid quantum-classical/i);
+    expect(commercialModel.flywheel).toMatch(/Mathnetica Platform/);
+  });
+
+  it("offers specialized engineering engagements, not generic consulting", () => {
+    expect(services[0]?.slug).toBe("architecture-review");
+    expect(services[0]?.entryPoint).toBe(true);
+    expect(services[1]?.slug).toBe("hybrid-infrastructure-workflows");
+    expect(services[1]?.flagship).toBe(true);
+    expect(services.every((s) => !/devops|ai consulting/i.test(s.title))).toBe(
+      true,
+    );
+    expect(commercialModel.offerLine).toMatch(/controlled infrastructure workflows/i);
   });
 
   it("exposes legal routes", () => {

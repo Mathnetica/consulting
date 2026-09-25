@@ -21,7 +21,7 @@ const homeDiagram = `                 MATHNETICA
      ───── Existing Infrastructure ─────
        Kubernetes / Argo / Kueue / HPC
                    │
-          CPU  /  GPU  /  QPU`;
+          CPU / GPU / HPC / Simulator / QPU`;
 
 const detailDiagram = `                 MATHNETICA
           Quantum Control Plane
@@ -38,29 +38,29 @@ const detailDiagram = `                 MATHNETICA
      ───── Existing Infrastructure ─────
        Kubernetes / Argo / Kueue / HPC
                    │
-          CPU  /  GPU  /  QPU
+          CPU / GPU / HPC / Simulator / QPU
                    │
          Provider integrations (roadmap)`;
 
-const hybridWorkflowDiagram = `Data
- |
- v
-CPU preprocessing
- |
- v
-GPU optimization
- |
- v
-Quantum circuit
- |
- v
-QPU execution
- |
- v
-CPU post-processing
- |
- v
-Result`;
+const hybridWorkflowDiagram = `DATA
+ ↓
+CPU
+ ↓
+GPU / HPC
+ ↓
+SIMULATOR
+ ↓
+QPU
+ ↓
+CPU
+ ↓
+RESULT`;
+
+const hybridRelationshipDiagram = `CPU · GPU · HPC
+       ↓
+Hybrid workload
+       ↓
+Simulator · QPU`;
 
 export function ArchitectureDiagram({
   variant = "home",
@@ -82,6 +82,20 @@ export function HybridWorkflowDiagram({ className }: { className?: string }) {
     <FadeIn className={cn("overflow-x-auto", className)}>
       <pre className="font-mono text-sm leading-relaxed text-foreground/80 md:text-base">
         {hybridWorkflowDiagram}
+      </pre>
+    </FadeIn>
+  );
+}
+
+export function HybridRelationshipDiagram({
+  className,
+}: {
+  className?: string;
+}) {
+  return (
+    <FadeIn className={cn("overflow-x-auto", className)}>
+      <pre className="font-mono text-sm leading-relaxed text-foreground/80 md:text-base">
+        {hybridRelationshipDiagram}
       </pre>
     </FadeIn>
   );
