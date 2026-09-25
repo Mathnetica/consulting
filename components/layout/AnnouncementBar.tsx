@@ -34,10 +34,10 @@ export function AnnouncementBar() {
       aria-label="Announcement"
     >
       <div className="container-site">
-        <div className="relative flex min-h-12 items-center justify-between gap-4 py-3.5">
+        <div className="relative flex min-h-9 items-center justify-between gap-4 py-2">
           <Link
             href={letter.bannerHref}
-            className="group min-w-0 text-left text-[15px] tracking-[0.02em] text-foreground transition-opacity hover:opacity-60 sm:text-base"
+            className="group min-w-0 text-left text-sm tracking-[0.02em] text-foreground transition-opacity hover:opacity-60 sm:text-[15px]"
           >
             <span className="underline-offset-[5px] group-hover:underline">
               {letter.bannerLabel}
@@ -52,10 +52,10 @@ export function AnnouncementBar() {
           <button
             type="button"
             onClick={dismiss}
-            className="flex size-10 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
+            className="flex size-8 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
             aria-label="Dismiss announcement"
           >
-            <span aria-hidden className="text-2xl leading-none font-light sm:text-[1.65rem]">
+            <span aria-hidden className="text-xl leading-none font-light">
               ×
             </span>
           </button>
