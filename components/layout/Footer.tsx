@@ -5,6 +5,7 @@ import { navLinks, siteConfig } from "@/lib/content/site";
 
 const footerNav = [
   ...navLinks,
+  { href: "/letter", label: "Letter" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

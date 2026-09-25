@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Google_Sans_Code, Google_Sans_Flex } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { CookieConsent } from "@/components/cookies/CookieConsent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/content/site";
@@ -116,6 +117,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col font-sans">
         <JsonLd />
+        <AnnouncementBar />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

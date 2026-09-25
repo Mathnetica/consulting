@@ -17,6 +17,7 @@ import {
   workAreas,
 } from "@/lib/content/site";
 import { services } from "@/lib/content/services";
+import { letter } from "@/lib/content/letter";
 import { legalLinks } from "@/lib/content/legal";
 
 describe("research content", () => {
@@ -109,5 +110,12 @@ describe("site content", () => {
       "/cookies",
       "/terms",
     ]);
+  });
+
+  it("publishes a company letter without shareholder cosplay", () => {
+    expect(letter.title).toMatch(/letter from Mathnetica/i);
+    expect(letter.bannerHref).toBe("/letter");
+    expect(letter.paragraphs.length).toBeGreaterThan(5);
+    expect(letter.paragraphs.join(" ")).not.toMatch(/shareholder/i);
   });
 });

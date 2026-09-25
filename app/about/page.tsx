@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { LargeStatement } from "@/components/sections/LargeStatement";
 import { CTASection } from "@/components/sections/CTASection";
@@ -39,6 +40,14 @@ export default function AboutPage() {
               algorithms, we work on the infrastructure layer connecting these
               systems: hybrid workflows, placement, automation, policy and
               observability.
+            </p>
+            <p>
+              <Link
+                href="/letter"
+                className="underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+              >
+                Read the Mathnetica letter →
+              </Link>
             </p>
           </LargeStatement>
         </div>
