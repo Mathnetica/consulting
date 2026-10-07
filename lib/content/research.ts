@@ -176,7 +176,7 @@ export function getResearchBySlug(slug: string) {
   return researchArticles.find((article) => article.slug === slug);
 }
 
-export const RESEARCH_PAGE_SIZE = 10;
+export const RESEARCH_PAGE_SIZE = 5;
 
 export type ResearchCategory = (typeof researchCategories)[number];
 
