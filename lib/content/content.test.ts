@@ -71,9 +71,9 @@ describe("site content", () => {
 
   it("defines three build layers and one platform", () => {
     expect(workAreas.map((area) => area.title)).toEqual([
-      "Hybrid workflows",
-      "Workload placement",
-      "Operations & constraints",
+      "Quantum Infrastructure",
+      "Hybrid Computing",
+      "Quantum Systems Architecture",
     ]);
     expect(platform.name).toBe("Mathnetica Platform");
     expect(platform.status).toBe("Experimental");
@@ -88,20 +88,25 @@ describe("site content", () => {
     expect(infrastructureGap.title).toMatch(/doesn't run alone/i);
     expect(audiences).toHaveLength(4);
     expect(siteConfig.finalCta).toBe("Discuss your architecture");
-    expect(siteConfig.commercialCta).toBe("Request an Architecture Review");
-    expect(siteConfig.tagline).toMatch(/hybrid quantum-classical/i);
+    expect(siteConfig.commercialCta).toBe("Book an Architecture Review");
+    expect(siteConfig.commercialCtaHref).toContain("infrastructure-review");
+    expect(siteConfig.tagline).toMatch(/Kubernetes/i);
     expect(commercialModel.flywheel).toMatch(/Mathnetica Platform/);
+    expect(commercialModel.europeanLine).toMatch(/Sovereign/i);
   });
 
   it("offers specialized engineering engagements, not generic consulting", () => {
-    expect(services[0]?.slug).toBe("architecture-review");
+    expect(services[0]?.slug).toBe("infrastructure-review");
     expect(services[0]?.entryPoint).toBe(true);
-    expect(services[1]?.slug).toBe("hybrid-infrastructure-workflows");
-    expect(services[1]?.flagship).toBe(true);
+    expect(services[0]?.priceNote).toMatch(/€1,950/);
+    expect(services[1]?.slug).toBe("hybrid-architecture-poc");
+    expect(services[1]?.priceNote).toMatch(/€7,500/);
+    expect(services[2]?.slug).toBe("hybrid-infrastructure-workflows");
+    expect(services[2]?.flagship).toBe(true);
     expect(services.every((s) => !/devops|ai consulting/i.test(s.title))).toBe(
       true,
     );
-    expect(commercialModel.offerLine).toMatch(/controlled infrastructure workflows/i);
+    expect(commercialModel.offerLine).toMatch(/existing infrastructure/i);
   });
 
   it("exposes legal routes", () => {

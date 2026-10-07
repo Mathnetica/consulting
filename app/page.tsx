@@ -15,26 +15,29 @@ import {
   audiences,
   collaborate,
   commercialModel,
+  homepageServices,
   infrastructureGap,
   platform,
   qbridge,
   researchDirections,
   siteConfig,
 } from "@/lib/content/site";
-import { services } from "@/lib/content/services";
+import { getServiceBySlug } from "@/lib/content/services";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     title: "Mathnetica — Quantum Infrastructure Engineering",
-    description:
-      "Infrastructure and control software for hybrid quantum-classical computing.",
+    description: siteConfig.description,
     url: "/",
   },
 };
 
 export default function HomePage() {
   const latestResearch = getSortedResearchArticles().slice(0, 3);
+  const featuredServices = homepageServices
+    .map((slug) => getServiceBySlug(slug))
+    .filter((service): service is NonNullable<typeof service> => Boolean(service));
 
   return (
     <>
@@ -66,8 +69,8 @@ export default function HomePage() {
         <div className="container-content">
           <SectionIntro
             eyebrow="What we are building"
-            title="Infrastructure for hybrid quantum-classical systems."
-            description="Quantum remains central. Useful quantum workloads still require classical compute, GPUs, HPC and simulators. Mathnetica researches and builds the control layer connecting them."
+            title="How quantum fits into existing infrastructure."
+            description="Existing infrastructure is the foundation. Quantum becomes another compute resource. Mathnetica works on the layer connecting applications, cloud, Kubernetes, HPC and QPUs."
           />
           <Expertise />
         </div>
@@ -106,7 +109,10 @@ export default function HomePage() {
               ))}
             </ul>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              {platform.principle}
+              {platform.principle}{" "}
+              <span className="text-foreground/80">
+                {commercialModel.europeanLine}
+              </span>
             </p>
           </FadeIn>
         </div>
@@ -173,9 +179,9 @@ export default function HomePage() {
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
           <SectionIntro
-            eyebrow="Research"
+            eyebrow="Engineering Research"
             title="Engineering the missing pieces."
-            description="Mathnetica Research documents the engineering problems we encounter while building infrastructure for hybrid quantum-classical computing — including placement, automation, sovereignty and observability. Research feeds directly into the platform."
+            description="We explore the infrastructure required to run quantum workloads alongside existing cloud, Kubernetes and HPC environments. Research feeds the platform and commercial engagements."
           />
           <div className="mt-12 md:mt-14">
             <ResearchList articles={latestResearch} compact />
@@ -185,7 +191,7 @@ export default function HomePage() {
               href="/research"
               className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
             >
-              All research
+              Explore Research →
             </Link>
           </FadeIn>
         </div>
@@ -198,17 +204,18 @@ export default function HomePage() {
             title={commercialModel.title}
             description={commercialModel.body}
           />
-          <FadeIn className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/80 md:text-lg">
+          <FadeIn className="mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/80 md:text-lg">
             <p>{commercialModel.offerLine}</p>
+            <p className="text-muted-foreground">{commercialModel.europeanLine}</p>
           </FadeIn>
           <div className="mt-14 space-y-0 border-y border-border md:mt-16">
-            {services.map((service, index) => (
+            {featuredServices.map((service, index) => (
               <FadeIn
                 key={service.slug}
                 delayMs={index * 40}
                 className="border-b border-border py-8 last:border-b-0 md:py-10"
               >
-                <div className="grid gap-3 md:grid-cols-[minmax(0,14rem)_1fr] md:gap-10">
+                <div className="grid gap-3 md:grid-cols-[minmax(0,16rem)_1fr] md:gap-10">
                   <div>
                     <h3 className="text-xl tracking-tight md:text-2xl">
                       <Link
@@ -225,7 +232,12 @@ export default function HomePage() {
                     ) : null}
                     {service.flagship ? (
                       <p className="mt-2 text-sm tracking-[0.12em] text-muted-foreground uppercase">
-                        Flagship
+                        Flagship direction
+                      </p>
+                    ) : null}
+                    {service.priceNote ? (
+                      <p className="mt-3 text-sm text-foreground/70">
+                        {service.priceNote}
                       </p>
                     ) : null}
                   </div>

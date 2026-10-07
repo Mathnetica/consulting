@@ -5,8 +5,8 @@ import { SectionIntro } from "@/components/sections/SectionIntro";
 import { ServiceSection } from "@/components/sections/ServiceSection";
 import { FadeIn } from "@/components/ui/fade-in";
 import {
-  architectureReview,
-  flagshipEngagement,
+  architecturePoc,
+  infrastructureReview,
   services,
 } from "@/lib/content/services";
 import { commercialModel, siteConfig } from "@/lib/content/site";
@@ -14,7 +14,7 @@ import { commercialModel, siteConfig } from "@/lib/content/site";
 export const metadata: Metadata = {
   title: "Engineering",
   description:
-    "Architecture Review and Hybrid Quantum Infrastructure Workflows — specialized engineering for hybrid quantum-classical systems.",
+    "Hybrid Quantum Infrastructure Review (€1,950) and Hybrid Quantum Architecture & PoC (from €7,500) — specialized engineering for hybrid quantum-classical systems.",
   alternates: { canonical: "/services" },
 };
 
@@ -26,10 +26,11 @@ export default function ServicesPage() {
           <SectionIntro
             eyebrow="Engineering"
             title="Specialized quantum infrastructure engineering."
-            description="Mathnetica is a commercial engineering company. Organizations hire us for Architecture Review and for designing controlled hybrid quantum infrastructure workflows — not generic DevOps, cloud or AI consulting."
+            description="Mathnetica is a commercial engineering company. Organizations hire us to understand how quantum computing fits existing cloud, Kubernetes and HPC infrastructure — not for generic DevOps, cloud or AI consulting."
           />
-          <FadeIn className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <FadeIn className="mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>{commercialModel.offerLine}</p>
+            <p className="text-foreground/80">{commercialModel.europeanLine}</p>
           </FadeIn>
           <FadeIn className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
@@ -39,12 +40,13 @@ export default function ServicesPage() {
               {siteConfig.commercialCta}
             </Link>
             <p className="text-base text-muted-foreground">
-              {architectureReview.priceNote} · then{" "}
+              {infrastructureReview.priceNote}
+              {" · "}
               <Link
-                href={`#${flagshipEngagement.slug}`}
+                href={`#${architecturePoc.slug}`}
                 className="underline-offset-4 hover:underline"
               >
-                {flagshipEngagement.title}
+                then PoC from €7,500
               </Link>
             </p>
           </FadeIn>
@@ -60,8 +62,8 @@ export default function ServicesPage() {
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
           <CTASection
-            title="Start with an Architecture Review."
-            description="The fastest path into Hybrid Quantum Infrastructure Workflows — before a larger design or implementation engagement."
+            title="Start with a Hybrid Quantum Infrastructure Review."
+            description="The fastest path to technical clarity — before a Hybrid Quantum Architecture & PoC or a larger implementation engagement."
             ctaLabel={siteConfig.commercialCta}
             ctaHref={siteConfig.commercialCtaHref}
           />

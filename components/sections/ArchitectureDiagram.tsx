@@ -6,41 +6,44 @@ type ArchitectureDiagramProps = {
   className?: string;
 };
 
-const homeDiagram = `                 MATHNETICA
-          Quantum Control Plane
-                   │
-     ┌─────────────┼─────────────┐
-     │             │             │
- QPU Resources   Workloads    Operations
-     │             │             │
- Discovery       Routing      Telemetry
- Allocation      Lifecycle    Provenance
-     │             │             │
-     └─────────────┼─────────────┘
-                   │
-     ───── Existing Infrastructure ─────
-       Kubernetes / Argo / Kueue / HPC
-                   │
-          CPU / GPU / HPC / Simulator / QPU`;
+const homeDiagram = `              Applications
+                    │
+                    ▼
+         Cloud / Kubernetes / HPC
+                    │
+                    ▼
+           Mathnetica Infrastructure
+                    │
+          ┌─────────┼─────────┐
+          ▼         ▼         ▼
+         CPU       GPU       QPU
+                              │
+                    ┌─────────┼─────────┐
+                    ▼         ▼         ▼
+                  IBM      PASQAL    EuroHPC
+                         (examples / roadmap)`;
 
-const detailDiagram = `                 MATHNETICA
-          Quantum Control Plane
-                   │
-     ┌─────────────┼─────────────┐
-     │             │             │
- QPU Resources   Workloads    Operations
-     │             │             │
- Discovery       Routing      Telemetry
- Allocation      Lifecycle    Provenance
-     │             │             │
-     └─────────────┼─────────────┘
-                   │
-     ───── Existing Infrastructure ─────
-       Kubernetes / Argo / Kueue / HPC
-                   │
-          CPU / GPU / HPC / Simulator / QPU
-                   │
-         Provider integrations (roadmap)`;
+const detailDiagram = `              Applications
+                    │
+                    ▼
+         Cloud / Kubernetes / HPC
+                    │
+                    ▼
+           Mathnetica Control Plane
+          Workflow · Placement · Policy
+          Automation · Observability
+                    │
+          ┌─────────┼─────────┐
+          ▼         ▼         ▼
+         CPU       GPU       QPU
+                              │
+                    ┌─────────┼─────────┐
+                    ▼         ▼         ▼
+                  IBM      PASQAL    EuroHPC
+                         (examples / roadmap)
+
+Existing stack remains the foundation.
+Provider names are illustrative — not partnerships.`;
 
 const hybridWorkflowDiagram = `DATA
  ↓

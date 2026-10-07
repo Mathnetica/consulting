@@ -7,6 +7,7 @@ import {
   researchArticles,
 } from "@/lib/content/research";
 import { FadeIn } from "@/components/ui/fade-in";
+import { siteConfig } from "@/lib/content/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -71,6 +72,18 @@ export default async function ResearchArticlePage({ params }: Props) {
               {paragraph}
             </p>
           ))}
+        </FadeIn>
+
+        <FadeIn className="mt-16 border-t border-border pt-10">
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Exploring how quantum computing could fit into your infrastructure?
+          </p>
+          <Link
+            href={siteConfig.commercialCtaHref}
+            className="mt-4 inline-block text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+          >
+            Book a Hybrid Quantum Infrastructure Review →
+          </Link>
         </FadeIn>
       </div>
     </article>

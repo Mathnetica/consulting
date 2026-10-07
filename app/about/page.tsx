@@ -83,8 +83,8 @@ export default function AboutPage() {
       <section className="container-site section-space border-t border-border">
         <div className="container-content">
           <CTASection
-            title="Start with an Architecture Review."
-            description="Specialized quantum infrastructure engineering — or explore the experimental platform and research."
+            title="Preparing your infrastructure for quantum computing?"
+            description="Start with a Hybrid Quantum Infrastructure Review — or explore the experimental platform and research."
             ctaLabel={siteConfig.commercialCta}
             ctaHref={siteConfig.commercialCtaHref}
           />

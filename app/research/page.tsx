@@ -45,9 +45,9 @@ export default async function ResearchPage({ searchParams }: ResearchPageProps) 
       <section className="container-site pt-20 pb-12 md:pt-28 md:pb-16">
         <div className="container-content">
           <SectionIntro
-            eyebrow="Research"
+            eyebrow="Engineering Research"
             title="Engineering the missing pieces."
-            description="Mathnetica Research documents the engineering problems we encounter while building infrastructure for hybrid quantum-classical computing — including placement, automation, sovereignty and observability. Research feeds directly into the platform."
+            description="We explore the infrastructure required to run quantum workloads alongside existing cloud, Kubernetes and HPC environments. Research feeds the platform and commercial work — not a marketing blog."
           />
         </div>
       </section>

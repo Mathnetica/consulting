@@ -12,11 +12,12 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/company/mathnetica",
   github: "https://github.com/mathnetica",
   description:
-    "Mathnetica builds infrastructure and control software for hybrid quantum-classical computing.",
-  tagline: "Build and operate hybrid quantum-classical systems.",
+    "Mathnetica helps organizations integrate quantum computing with existing cloud, Kubernetes and HPC infrastructure.",
+  tagline:
+    "Connect cloud, Kubernetes and HPC with quantum computing platforms.",
   focus: "Quantum Infrastructure Engineering",
   heroSupport:
-    "Mathnetica explores the infrastructure layer connecting classical compute, GPU and HPC systems, quantum simulators and QPUs.",
+    "Mathnetica designs the architecture and infrastructure required to run hybrid CPU, GPU and QPU workloads — without treating quantum as an isolated experiment.",
   primaryCta: "Explore the Platform",
   primaryCtaHref: "/platform",
   secondaryCta: "GitHub",
@@ -24,8 +25,8 @@ export const siteConfig = {
   researchCta: "Research",
   researchCtaHref: "/research",
   finalCta: "Discuss your architecture",
-  commercialCta: "Request an Architecture Review",
-  commercialCtaHref: "/contact?topic=architecture-review",
+  commercialCta: "Book an Architecture Review",
+  commercialCtaHref: "/contact?topic=infrastructure-review",
 } as const;
 
 /** Core thesis — hybrid, not QPU-only. */
@@ -33,49 +34,57 @@ export const infrastructureGap = {
   eyebrow: "The thesis",
   title: "Quantum doesn't run alone.",
   body: [
-    "Quantum workloads are inherently hybrid. Data preparation, simulation, optimization and post-processing happen on classical infrastructure, while selected parts of a workload may execute on quantum processors.",
-    "Mathnetica focuses on the infrastructure layer connecting these worlds — not quantum algorithms, and not quantum hardware.",
+    "Quantum computing does not replace your infrastructure. It has to integrate with it. Organizations already operate cloud, Kubernetes, HPC, CPU/GPU workloads, identity, security and observability.",
+    "Access to a QPU is only one part of the problem. Mathnetica focuses on the infrastructure layer: where workloads execute, how classical and quantum stages communicate, how providers are selected, and how security and sovereignty requirements are maintained.",
   ],
 } as const;
 
 export const audiences = [
   {
-    title: "Quantum computing providers",
+    title: "CTOs & platform leads",
     description:
-      "Integrate QPUs with modern cloud and HPC infrastructure.",
+      "Understand how quantum computing could fit into an existing technology stack.",
   },
   {
-    title: "HPC & supercomputing centres",
+    title: "HPC & cloud architects",
     description:
-      "Operate CPU, GPU and QPU resources as part of hybrid workloads.",
+      "Integrate QPUs with Kubernetes, HPC and classical compute without a parallel stack.",
   },
   {
-    title: "Research institutions",
+    title: "Research & R&D organizations",
     description:
-      "Run reproducible hybrid quantum–classical experiments.",
+      "Run reproducible hybrid quantum–classical experiments on real infrastructure.",
   },
   {
-    title: "Platform engineering teams",
+    title: "Public-sector technology teams",
     description:
-      "Integrate quantum resources without creating a separate infrastructure stack.",
+      "Evaluate portable, observable and sovereignty-aware quantum infrastructure paths.",
   },
 ] as const;
 
 export const collaborate = {
-  title: "Work with Mathnetica.",
+  title: "Preparing your infrastructure for quantum computing?",
   description:
-    "Start with an Architecture Review, or engage us to design controlled hybrid quantum infrastructure workflows. Open-source and research feed the Mathnetica Platform — they are not the whole company.",
+    "Start with a Hybrid Quantum Infrastructure Review and understand where quantum computing fits into your existing technology stack — then decide whether a focused PoC makes sense.",
 } as const;
 
 export const commercialModel = {
   eyebrow: "Work with us",
-  title: "Architecture Review today. Infrastructure workflows next.",
-  body: "Mathnetica is a commercial engineering company under Quantum Infrastructure Engineering. We design controlled infrastructure workflows — policy, approval, placement, provisioning, execution and audit — across CPU, GPU, HPC, simulators and QPUs. Specialized engagements fund and inform the Mathnetica Platform.",
+  title: "Architecture Review today. PoC when ready.",
+  body: "Mathnetica is a commercial engineering company under Quantum Infrastructure Engineering. Hire us to assess how quantum fits your cloud, Kubernetes and HPC environment — then optionally build a hybrid PoC. Open source and research feed the Mathnetica Platform.",
   flywheel:
     "Research → open source → real-world engineering → reusable technology → Mathnetica Platform.",
   offerLine:
-    "Mathnetica builds controlled infrastructure workflows for hybrid quantum-classical computing — connecting policy, human approval, provisioning and execution across CPU, GPU, HPC and QPU environments.",
+    "Understand how quantum computing integrates with your existing infrastructure — then design controlled hybrid CPU / GPU / QPU paths without locking into a single provider.",
+  europeanLine: "Portable. Observable. Sovereign.",
 } as const;
+
+/** Homepage / services: primary commercial offers only. */
+export const homepageServices = [
+  "infrastructure-review",
+  "hybrid-architecture-poc",
+  "hybrid-infrastructure-workflows",
+] as const;
 
 export const navLinks = [
   { href: "/platform", label: "Platform" },
@@ -84,25 +93,25 @@ export const navLinks = [
   { href: "/about", label: "About" },
 ] as const;
 
-/** Research and engineering directions — not production feature claims. */
+/** Three core capability areas — research and engineering directions. */
 export const workAreas = [
   {
     number: "01",
-    title: "Hybrid workflows",
+    title: "Quantum Infrastructure",
     description:
-      "We are exploring controlled infrastructure workflows that span CPU, GPU, HPC, simulators and QPUs — including policy checks and human approval for high-risk steps — without treating quantum execution as an isolated experiment.",
+      "Design infrastructure connecting enterprise systems with quantum computing platforms — cloud-to-QPU and Kubernetes/HPC integration, secure connectivity, provider access, identity and workload execution architecture.",
   },
   {
     number: "02",
-    title: "Workload placement",
+    title: "Hybrid Computing",
     description:
-      "We are investigating how infrastructure can reason about where each stage should run — based on performance, availability, cost, hardware requirements and policy — including when a simulator is the better target than a QPU.",
+      "Design systems where CPU, GPU, HPC, simulators and QPUs work together — hybrid workflows, scheduling, orchestration, asynchronous jobs and classical pre-/post-processing.",
   },
   {
     number: "03",
-    title: "Operations & constraints",
+    title: "Quantum Systems Architecture",
     description:
-      "We are researching observability, cost awareness, infrastructure lifecycle and sovereignty constraints across the quantum–classical boundary — including European data residency and trusted-provider requirements where organizations need them. Platform capabilities, not a separate product.",
+      "Help organizations determine how quantum fits into their landscape — current and target architecture, provider evaluation, security boundaries, data flows, placement and an implementation roadmap.",
   },
 ] as const;
 
@@ -125,7 +134,7 @@ export const researchDirections = [
   {
     title: "Policy and sovereignty",
     description:
-      "Respecting region, data location, approved providers, budget and organizational policy — including European data residency and cloud sovereignty constraints where they apply.",
+      "Portable, observable and sovereignty-aware decisions — region, data location, approved providers and organizational policy, including European constraints where they apply.",
   },
   {
     title: "Observability",
@@ -133,9 +142,9 @@ export const researchDirections = [
       "Workflow-first visibility, cost signals and execution provenance across classical and quantum stages.",
   },
   {
-    title: "Cost awareness",
+    title: "Provider neutrality",
     description:
-      "Estimating and comparing cost and turnaround as part of placement — not a separate FinOps product.",
+      "Work with simulators and QPU backends such as IBM Quantum, PASQAL or EuroHPC without unnecessarily coupling architecture to one vendor.",
   },
 ] as const;
 
@@ -153,7 +162,7 @@ export const qbridge = {
   name: "QBridge",
   status: "Experimental" as const,
   summary:
-    "QBridge explores a portable infrastructure layer for connecting classical workloads with quantum simulators and QPU backends. It is an open-source adapter direction within the Mathnetica Platform — not a finished enterprise product.",
+    "QBridge is experimental open-source orchestration for hybrid quantum workloads. It explores treating quantum execution as an infrastructure workload — portable definitions, provider abstraction and lifecycle — rather than isolated notebook experiments. Proof that Mathnetica experiments with building infrastructure, not only talking about it.",
 } as const;
 
 export const platform = {
@@ -164,7 +173,7 @@ export const platform = {
   summary:
     "Mathnetica is building a quantum-aware control layer for modern computing infrastructure. We are exploring hybrid workflow orchestration, workload placement, infrastructure automation, policy and sovereignty, observability and cost awareness — extending proven cloud-native and HPC technologies where they already exist.",
   principle:
-    "Existing stack is the foundation. Our code is the layer that makes infrastructure understand hybrid quantum-classical workloads.",
+    "Existing infrastructure is the foundation. Quantum becomes another compute resource.",
   github: "https://github.com/mathnetica",
   claimLevel: "experimental" as const,
   layers: [
@@ -185,17 +194,17 @@ export const platform = {
     },
   ],
   roadmapNote:
-    "Capabilities described on this site are research and early engineering directions. Do not assume providers, schedulers or automation are production-ready unless listed as implemented.",
+    "Capabilities described on this site are research and early engineering directions. Provider examples (e.g. IBM Quantum, PASQAL, EuroHPC) are illustrative — not claims of production integrations or partnerships.",
 } as const;
 
 export const aboutValues = [
   "Commercial engineering company — not only open source",
   "Software infrastructure, not quantum hardware",
   "Hybrid by design — CPU, GPU, HPC, simulators, QPU",
+  "Provider-neutral — no single-vendor lock-in story",
   "Proven cloud-native and HPC building blocks first",
-  "Quantum-aware layer where gaps exist",
   "Open source for adoption and credibility",
   "Research that feeds the platform",
   "Honest experimental status",
-  "Amsterdam · European data residency & sovereignty where required",
+  "Amsterdam · Portable · Observable · Sovereign",
 ] as const;

@@ -23,23 +23,15 @@ export function Hero() {
           <p className="max-w-xl text-left text-base leading-relaxed text-foreground/70 md:text-lg">
             {siteConfig.heroSupport}
           </p>
-          <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <Link href={siteConfig.primaryCtaHref} className="btn-pill-primary">
               {siteConfig.primaryCta}
             </Link>
-            <a
-              href={siteConfig.secondaryCtaHref}
-              className="btn-pill-secondary"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {siteConfig.secondaryCta}
-            </a>
             <Link
-              href={siteConfig.researchCtaHref}
-              className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+              href={siteConfig.commercialCtaHref}
+              className="btn-pill-secondary"
             >
-              {siteConfig.researchCta}
+              {siteConfig.commercialCta}
             </Link>
           </div>
         </div>

@@ -14,13 +14,11 @@ describe("Hero", () => {
     expect(
       screen.getByRole("link", { name: /explore the platform/i }),
     ).toHaveAttribute("href", "/platform");
-    expect(screen.getByRole("link", { name: /^github$/i })).toHaveAttribute(
-      "href",
-      "https://github.com/mathnetica",
-    );
-    expect(screen.getByRole("link", { name: /^research$/i })).toHaveAttribute(
-      "href",
-      "/research",
-    );
+    expect(
+      screen.getByRole("link", { name: /book an architecture review/i }),
+    ).toHaveAttribute("href", "/contact?topic=infrastructure-review");
+    expect(
+      screen.queryByRole("link", { name: /^research$/i }),
+    ).not.toBeInTheDocument();
   });
 });

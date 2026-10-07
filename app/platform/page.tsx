@@ -145,6 +145,30 @@ export default function PlatformPage() {
             title={qbridge.name}
             description={qbridge.summary}
           />
+          <FadeIn className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p>
+              Conceptual flow: Application → QBridge → Quantum Workload →
+              scheduler / orchestration → Simulator or QPU backends (examples:
+              IBM Quantum, PASQAL, EuroHPC — illustrative, not production
+              claims).
+            </p>
+          </FadeIn>
+          <FadeIn className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href={platform.github}
+              className="btn-pill-primary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Explore QBridge on GitHub
+            </a>
+            <Link
+              href="/research/running-quantum-workloads-from-kubernetes"
+              className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+            >
+              Related research →
+            </Link>
+          </FadeIn>
         </div>
       </section>
 
@@ -152,7 +176,7 @@ export default function PlatformPage() {
         <div className="container-content">
           <CTASection
             title="Need architecture help today?"
-            description={`While ${platform.name} remains experimental, organizations can hire Mathnetica for Architecture Review and specialized hybrid quantum infrastructure engineering.`}
+            description={`While ${platform.name} remains experimental, organizations can hire Mathnetica for a Hybrid Quantum Infrastructure Review and specialized hybrid engineering.`}
             ctaLabel={siteConfig.commercialCta}
             ctaHref={siteConfig.commercialCtaHref}
           />
