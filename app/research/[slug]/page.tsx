@@ -74,6 +74,28 @@ export default async function ResearchArticlePage({ params }: Props) {
           ))}
         </FadeIn>
 
+        {article.links && article.links.length > 0 ? (
+          <FadeIn className="mt-12 space-y-3 border-t border-border pt-10">
+            <p className="text-sm tracking-[0.14em] text-muted-foreground uppercase">
+              Links
+            </p>
+            <ul className="space-y-2">
+              {article.links.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-base underline-offset-4 transition-opacity hover:opacity-70 hover:underline md:text-lg"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.label} →
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+        ) : null}
+
         <FadeIn className="mt-16 border-t border-border pt-10">
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
             Exploring how quantum computing could fit into your infrastructure?

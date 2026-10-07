@@ -1,5 +1,10 @@
 export type ResearchStatus = "published" | "in-progress" | "planned";
 
+export type ResearchLink = {
+  label: string;
+  href: string;
+};
+
 export type ResearchArticle = {
   slug: string;
   title: string;
@@ -8,6 +13,7 @@ export type ResearchArticle = {
   abstract: string;
   body: string[];
   status: ResearchStatus;
+  links?: ResearchLink[];
 };
 
 export const researchCategories = [
@@ -25,6 +31,33 @@ export const researchCategories = [
  * In-progress / planned items are research directions that support the platform.
  */
 export const researchArticles: ResearchArticle[] = [
+  {
+    slug: "mathnetica-tools-for-cudaq",
+    title: "Building Developer Tools for CUDA-Q in VS Code and Cursor",
+    category: "Workloads",
+    date: "2026-10-07",
+    status: "published",
+    abstract:
+      "Mathnetica Tools for CUDA-Q is an independent Preview extension that helps developers run CUDA-Q programs, inspect environments, select targets and work with notebooks — without leaving VS Code or Cursor.",
+    body: [
+      "Hybrid quantum-classical work does not start only at the cluster. It also starts where engineers write kernels, select targets and debug local environments. Mathnetica is building open developer tooling for that layer alongside longer-term infrastructure research.",
+      "Mathnetica Tools for CUDA-Q is an independent open-source Preview for Visual Studio Code and Cursor. It focuses on practical CUDA-Q workflows: run the current file, detect @cudaq.kernel functions, select execution targets from the local CUDA-Q environment, inspect Python and CUDA-Q diagnostics, and work with Jupyter notebooks in the editor.",
+      "The extension is intentionally honest about maturity. Target availability depends on the local CUDA-Q installation. GPU or QPU targets are not assumed. Kernel CodeLens currently runs the containing Python file so imports and surrounding context are preserved. Optional AI assistance (local Ollama or Mistral BYOK) is available, but all core CUDA-Q tools work without it.",
+      "This project is not affiliated with, sponsored by, or endorsed by NVIDIA. NVIDIA and CUDA-Q are trademarks of NVIDIA Corporation. Mathnetica Tools for CUDA-Q does not use NVIDIA logos or official CUDA-Q branding assets.",
+      "Why it matters for Mathnetica: useful quantum infrastructure includes the path from developer workstation to hybrid execution. Editor tooling is one concrete place where CPU, simulator and eventual QPU workflows become operational for engineers — complementary to Kubernetes, HPC and control-plane research, not a replacement for them.",
+      "Status: Preview, under active development. Feedback and contributions are welcome via GitHub.",
+    ],
+    links: [
+      {
+        label: "VS Code Marketplace — Mathnetica Tools for CUDA-Q",
+        href: "https://marketplace.visualstudio.com/items?itemName=mathnetica.mathnetica-tools-for-cudaq",
+      },
+      {
+        label: "GitHub — Mathnetica/mathnetica-cudaq-vscode",
+        href: "https://github.com/Mathnetica/mathnetica-cudaq-vscode",
+      },
+    ],
+  },
   {
     slug: "running-quantum-workloads-from-kubernetes",
     title: "Running Quantum Workloads from Kubernetes",
